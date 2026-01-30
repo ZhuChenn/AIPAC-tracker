@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPACScan</title>
+    <meta name="description" content="Track AIPAC funding to US Representatives - transparency in political donations">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo"><img src="site-logo.svg" alt="AIPACScan" class="site-logo"></a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link active">Map</a>
+                <a href="jewscan.html" class="nav-link scan-link"><img src="jewscan-logo.svg" alt="" class="jewscan-nav-logo">JewScan</a>
+                <a href="updates.html" class="nav-link">Updates</a>
+                <a href="aipacscan.html" class="nav-link">AIPACscan</a>
+                <a href="https://x.com/sqn" target="_blank" class="nav-link">Article</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Map/Content Area -->
+            <div class="content-area" id="contentArea">
+                <div class="map-wrapper">
+                    <object data="usa-map.svg" type="image/svg+xml" class="usa-map" id="usaMap"></object>
+                </div>
+            </div>
+
+            <!-- Database Grid (hidden by default, shown when category selected) -->
+            <div class="database-grid" id="databaseGrid"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-disclaimer-small">
+                Data sourced from public records (1990-2024) and may contain errors or omissions. 
+                This site does not accuse any individual or entity of wrongdoing. 
+                Information is provided for research and educational purposes only and should be independently verified before taking any action. 
+                Nothing on this site constitutes legal, financial, or professional advice.
+            </p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">Terms of Use</a>
+                <span class="footer-dot">•</span>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <span class="footer-dot">•</span>
+                <a href="#" class="footer-link">Request Correction</a>
+            </div>
+            
+            <p class="footer-text">
+                Have information about AIPAC funding? 
+                <a href="#" class="footer-link-highlight">Submit a tip</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item" data-page="home">
+            <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span class="mobile-nav-label">Home</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="search">
+            <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <span class="mobile-nav-label">Search</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="politicians">
+            <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <span class="mobile-nav-label">Politicians</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="data">
+            <svg class="mobile-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+            <span class="mobile-nav-label">Data</span>
+        </a>
+    </nav>
+
+    <!-- State Side Panel -->
+    <div class="state-panel" id="statePanel">
+        <div class="panel-header">
+            <div class="panel-title-row">
+                <h2 class="panel-title" id="panelTitle">State</h2>
+                <button class="panel-close" id="panelClose">&times;</button>
+            </div>
+            <div class="panel-stats" id="panelStats"></div>
+            <div class="panel-search">
+                <svg class="panel-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" class="panel-search-input" id="panelSearch" placeholder="Search politicians...">
+            </div>
+        </div>
+        <div class="panel-list" id="panelList"></div>
+    </div>
+    <div class="panel-overlay" id="panelOverlay"></div>
+
+    <!-- Detail Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

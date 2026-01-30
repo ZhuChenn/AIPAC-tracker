@@ -1,0 +1,190 @@
+/* Updates Page Styles - High Tech Edition */
+
+.updates-page {
+    min-height: 100vh;
+    background: #050505;
+}
+
+.updates-main {
+    padding: 4rem 2rem 6rem;
+    min-height: calc(100vh - 60px);
+}
+
+.updates-container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* Header */
+.updates-header {
+    margin-bottom: 4rem;
+}
+
+.updates-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.updates-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+/* Updates List */
+.updates-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.update-item {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.update-item:first-child {
+    padding-top: 0;
+}
+
+.update-item:last-child {
+    border-bottom: none;
+}
+
+/* Date */
+.update-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 45px;
+    padding-top: 0.25rem;
+}
+
+.date-day {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1;
+    font-family: 'SF Mono', Monaco, monospace;
+}
+
+.date-month {
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.375rem;
+}
+
+/* Content */
+.update-content {
+    flex: 1;
+}
+
+.update-version {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(199, 48, 48, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.625rem;
+    font-family: 'SF Mono', Monaco, monospace;
+}
+
+.update-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 0.625rem;
+    letter-spacing: 0.01em;
+}
+
+.update-text {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* Follow Section */
+.follow-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.follow-label {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.25rem;
+}
+
+.follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+}
+
+.follow-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.follow-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .updates-main {
+        padding: 2rem 1.25rem 4rem;
+    }
+    
+    .updates-title {
+        font-size: 1.5rem;
+    }
+    
+    .update-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+    
+    .update-date {
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: baseline;
+    }
+    
+    .date-month {
+        margin-top: 0;
+    }
+}

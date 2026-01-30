@@ -1,0 +1,9 @@
+{
+  "name": "aipacscan",
+  "functions": {
+    "api/analyze.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  }
+}

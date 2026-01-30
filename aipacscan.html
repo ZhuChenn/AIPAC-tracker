@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPACscan - Coming Soon</title>
+    <meta name="description" content="AIPACscan - Coming Soon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .coming-soon-page {
+            min-height: 100vh;
+            background: #050505;
+        }
+        
+        .coming-soon-main {
+            padding: 6rem 2rem;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .coming-soon-container {
+            max-width: 420px;
+            text-align: center;
+        }
+        
+        .coming-soon-title {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 2rem;
+            letter-spacing: -0.03em;
+        }
+        
+        .coming-soon-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 1rem;
+        }
+        
+        .coming-soon-highlight {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 3rem;
+        }
+        
+        .feature-list {
+            text-align: left;
+            margin: 2.5rem 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-number {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: rgba(199, 48, 48, 0.7);
+            letter-spacing: 0.05em;
+            min-width: 20px;
+            padding-top: 2px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 1rem 1.75rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .back-btn svg {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+    </style>
+</head>
+<body class="coming-soon-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo"><img src="site-logo.svg" alt="AIPACScan" class="site-logo"></a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link">Map</a>
+                <a href="jewscan.html" class="nav-link"><img src="jewscan-logo.svg" alt="" class="jewscan-nav-logo">JewScan</a>
+                <a href="updates.html" class="nav-link">Updates</a>
+                <a href="aipacscan.html" class="nav-link active">AIPACscan</a>
+                <a href="https://x.com/sqn" target="_blank" class="nav-link">Article</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="coming-soon-main">
+        <div class="coming-soon-container">
+            <h1 class="coming-soon-title">Coming Soon</h1>
+            <p class="coming-soon-description">
+                Create TrackAIPAC-style images instantly. Upload a photo, enter a name, and generate a shareable image in seconds.
+            </p>
+            
+            <ul class="feature-list">
+                <li>
+                    <span class="feature-number">01</span>
+                    Upload any photo of a person
+                </li>
+                <li>
+                    <span class="feature-number">02</span>
+                    Enter their name
+                </li>
+                <li>
+                    <span class="feature-number">03</span>
+                    Automatically generates a formatted image based on how much of a sellout they look like
+                </li>
+            </ul>
+            
+            <a href="/" class="back-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Map
+            </a>
+        </div>
+    </main>
+</body>
+</html>

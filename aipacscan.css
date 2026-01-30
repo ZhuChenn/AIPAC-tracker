@@ -1,0 +1,293 @@
+/* AIPACscan Page Styles - High Tech Edition */
+
+/* Custom Font */
+@font-face {
+    font-family: 'Zen Dots';
+    src: url('ZenDots-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+.aipacscan-page {
+    min-height: 100vh;
+    background: #050505;
+}
+
+.aipacscan-main {
+    padding: 3rem 2rem 6rem;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aipacscan-container {
+    max-width: 480px;
+    width: 100%;
+}
+
+/* Header */
+.aipacscan-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.aipacscan-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.aipacscan-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.aipacscan-subtitle {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0;
+}
+
+/* Upload Card */
+.upload-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    padding: 2rem;
+}
+
+/* Photo Upload */
+.photo-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.photo-preview {
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.2s ease;
+}
+
+.photo-upload:hover .photo-preview {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder {
+    width: 3rem;
+    height: 3rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.photo-label {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+/* Name Input */
+.name-input-wrapper {
+    margin-bottom: 2rem;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+}
+
+.name-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.name-input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 400;
+}
+
+.name-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Generate Button */
+.generate-btn {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(199, 48, 48, 0.9);
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.generate-btn:hover:not(:disabled) {
+    background: rgba(199, 48, 48, 1);
+}
+
+.generate-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Loading */
+.loading-section {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-top-color: rgba(199, 48, 48, 0.8);
+    border-radius: 0;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+}
+
+/* Result */
+.result-section {
+    text-align: center;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.result-card canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Actions */
+.result-actions {
+    display: flex;
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.action-btn svg {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.7;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.action-btn.primary {
+    background: rgba(199, 48, 48, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.action-btn.primary:hover {
+    background: rgba(199, 48, 48, 1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .aipacscan-main {
+        padding: 2rem 1rem 4rem;
+    }
+    
+    .upload-card {
+        padding: 1.5rem;
+    }
+    
+    .photo-preview {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+}

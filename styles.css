@@ -422,13 +422,14 @@ body {
 /* CA Coming Soon Section */
 .ca-coming-soon-section {
     width: 100%;
-    padding: 4rem 2rem 6rem;
+    padding: 0.5rem 2rem 2rem;
     background: #050505;
+    margin-top: -2rem;
 }
 
 .ca-coming-soon {
     font-family: 'Manrope', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
@@ -442,11 +443,12 @@ body {
 
 @media (max-width: 768px) {
     .ca-coming-soon-section {
-        padding: 3rem 1.5rem 5rem;
+        padding: 0.5rem 1.5rem 1.5rem;
+        margin-top: -1rem;
     }
     
     .ca-coming-soon {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 }
 

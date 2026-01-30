@@ -354,21 +354,6 @@ if (mapObject) {
     });
 }
 
-// Mobile nav
-document.querySelectorAll('.mobile-nav-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const page = item.dataset.page;
-        
-        if (page === 'home') {
-            const databaseGrid = document.getElementById('databaseGrid');
-            const contentArea = document.getElementById('contentArea');
-            if (databaseGrid) databaseGrid.classList.remove('active');
-            if (contentArea) contentArea.style.display = 'flex';
-        }
-    });
-});
-
 // Initialize
 loadData();
 loadPoliticiansByState();

@@ -424,17 +424,17 @@ body {
 }
 
 .ca-coming-soon {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
     text-align: center;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
 }
 
 .ca-label {
-    color: #ff6b6b;
-    font-weight: 800;
+    color: rgba(255, 107, 107, 0.7);
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -443,7 +443,7 @@ body {
     }
     
     .ca-coming-soon {
-        font-size: 1.25rem;
+        font-size: 0.8rem;
     }
 }
 

@@ -1,5 +1,6 @@
 {
   "name": "aipacscan",
+  "cleanUrls": true,
   "functions": {
     "api/analyze.js": {
       "memory": 1024,

@@ -18,9 +18,16 @@ export default async function handler(req, res) {
     // API key from environment variable
     const apiKey = process.env.XAI_API_KEY;
     
+    // Debug: log available env vars (keys only, not values)
+    console.log('Available env vars:', Object.keys(process.env).filter(k => k.includes('XAI') || k.includes('API')));
+    console.log('XAI_API_KEY exists:', !!apiKey);
+    console.log('XAI_API_KEY length:', apiKey ? apiKey.length : 0);
+    
     if (!apiKey) {
-        console.error('XAI_API_KEY environment variable is not set');
-        return res.status(500).json({ error: 'API key not configured' });
+        return res.status(500).json({ 
+            error: 'API key not configured',
+            hint: 'Make sure XAI_API_KEY is set in Vercel Environment Variables and you redeployed after adding it'
+        });
     }
 
     try {

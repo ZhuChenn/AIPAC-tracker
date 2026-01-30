@@ -37,29 +37,26 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 /* Header - Floating Glass UI */
 .header {
     position: fixed;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 3rem);
-    max-width: 1400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 100;
-    padding: 0.625rem 2rem;
-    background: rgba(20, 8, 10, 0.35);
-    backdrop-filter: saturate(150%) blur(50px);
-    -webkit-backdrop-filter: saturate(150%) blur(50px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    padding: 0.75rem 2.5rem;
+    background: rgba(12, 6, 8, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .header-content {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -92,21 +89,20 @@ body {
 
 .nav-link {
     font-size: 0.8125rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
     font-family: inherit;
-    padding: 0.5rem 0.875rem;
-    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.02em;
 }
 
 .nav-link:hover {
-    color: rgba(255, 255, 255, 0.95);
-    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 1);
 }
 
 .nav-dropdown {

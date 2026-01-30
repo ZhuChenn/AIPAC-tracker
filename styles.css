@@ -393,7 +393,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0 3rem 0;
+    padding: 0.5rem 0 1rem 0;
 }
 
 .map-wrapper {
@@ -401,7 +401,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    padding: 2rem 0;
+    padding: 0.5rem 0;
 }
 
 .usa-map {
@@ -422,14 +422,14 @@ body {
 /* CA Coming Soon Section */
 .ca-coming-soon-section {
     width: 100%;
-    padding: 0.5rem 2rem 2rem;
+    padding: 0;
     background: #050505;
-    margin-top: -2rem;
+    margin-top: -4rem;
 }
 
 .ca-coming-soon {
     font-family: 'Manrope', sans-serif;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
@@ -443,12 +443,11 @@ body {
 
 @media (max-width: 768px) {
     .ca-coming-soon-section {
-        padding: 0.5rem 1.5rem 1.5rem;
-        margin-top: -1rem;
+        margin-top: -2rem;
     }
     
     .ca-coming-soon {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 

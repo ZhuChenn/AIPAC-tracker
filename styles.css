@@ -419,6 +419,30 @@ body {
 
 /* State hover effects handled in SVG */
 
+/* CA Coming Soon */
+.ca-coming-soon {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.02em;
+}
+
+.ca-label {
+    color: #ff6b6b;
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .ca-coming-soon {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+    }
+}
+
 /* Database Grid */
 .database-grid {
     display: none;

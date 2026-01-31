@@ -64,11 +64,24 @@
 
 .hall-subtitle {
     font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.hall-description {
+    font-family: 'Manrope', -apple-system, sans-serif;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.35);
     margin: 0;
-    letter-spacing: 0.02em;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Leaderboard */

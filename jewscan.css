@@ -1,8 +1,12 @@
-/* JewScan Page Styles - High Tech Edition */
+/* JewScan Page Styles - Premium High Tech Edition */
 
 .jewscan-page {
     min-height: 100vh;
-    background: #050505;
+    background: #030508;
+    background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(20, 40, 80, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(30, 50, 100, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(40, 60, 120, 0.06) 0%, transparent 40%);
     background-attachment: fixed;
 }
 
@@ -14,15 +18,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     min-height: calc(100vh - 60px);
 }
 
 /* Two Column Layout */
 .jewscan-layout {
     display: flex;
-    gap: 5rem;
-    max-width: 1100px;
+    gap: 6rem;
+    max-width: 1200px;
     width: 100%;
     align-items: flex-start;
 }
@@ -30,68 +34,89 @@
 /* Left Side - AI Info */
 .jewscan-info {
     flex: 1;
-    max-width: 380px;
+    max-width: 400px;
 }
 
 .jewscan-logo-large {
-    width: 160px;
+    width: 180px;
     height: auto;
-    margin-bottom: 3rem;
-    opacity: 0.9;
+    margin-bottom: 3.5rem;
+    opacity: 0.95;
+    filter: drop-shadow(0 0 30px rgba(100, 140, 255, 0.1));
 }
 
 /* AI Features */
 .ai-features {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.25rem;
 }
 
 .ai-feature {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.5rem;
     align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeSlideIn 0.6s ease forwards;
+}
+
+.ai-feature:nth-child(1) { animation-delay: 0.1s; }
+.ai-feature:nth-child(2) { animation-delay: 0.2s; }
+.ai-feature:nth-child(3) { animation-delay: 0.3s; }
+.ai-feature:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .ai-feature-number {
     font-size: 0.625rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    color: rgba(100, 140, 255, 0.4);
     flex-shrink: 0;
-    width: 1.5rem;
+    width: 1.75rem;
     font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-    letter-spacing: 0.1em;
-    padding-top: 0.125rem;
+    letter-spacing: 0.15em;
+    padding-top: 0.2rem;
 }
 
 .ai-feature-text h4 {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0 0 0.375rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 0.5rem;
     letter-spacing: 0.02em;
 }
 
 .ai-feature-text p {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.4);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
     letter-spacing: 0.01em;
 }
 
 /* Right Side - Scan Container */
 .jewscan-container {
     width: 100%;
-    max-width: 520px;
+    max-width: 560px;
     flex-shrink: 0;
 }
 
 /* Main Card */
 .jewscan-card {
-    background: transparent;
-    border: none;
-    padding: 0;
+    background: rgba(10, 15, 30, 0.4);
+    border: 1px solid rgba(100, 140, 255, 0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 4px 60px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Upload Area */
@@ -101,75 +126,110 @@
 
 .upload-zone {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 2px;
+    border: 1px dashed rgba(100, 140, 255, 0.2);
+    border-radius: 4px;
     padding: 5rem 3rem;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.01);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(20, 30, 60, 0.2);
+    overflow: hidden;
 }
 
 .upload-zone::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(199, 48, 48, 0.3), transparent);
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(100, 140, 255, 0.1), transparent 30%);
     opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.upload-zone:hover {
-    border-color: rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.015);
+    animation: none;
 }
 
 .upload-zone:hover::before {
     opacity: 1;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.upload-zone::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: rgba(10, 15, 30, 0.95);
+    border-radius: 3px;
+    z-index: 0;
+}
+
+.upload-zone > * {
+    position: relative;
+    z-index: 1;
+}
+
+.upload-zone:hover {
+    border-color: rgba(100, 140, 255, 0.4);
+    background: rgba(30, 45, 80, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(100, 140, 255, 0.1);
 }
 
 .upload-zone.dragover {
-    border-color: rgba(199, 48, 48, 0.4);
-    background: rgba(199, 48, 48, 0.02);
+    border-color: rgba(100, 180, 255, 0.6);
+    background: rgba(40, 60, 100, 0.3);
+    transform: scale(1.01);
 }
 
 .upload-zone.dragover::before {
     opacity: 1;
+    animation: rotate 2s linear infinite;
 }
 
 .upload-icon-ring {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin: 0 auto 2rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 2px;
+    background: linear-gradient(135deg, rgba(100, 140, 255, 0.1) 0%, rgba(60, 100, 200, 0.05) 100%);
+    border: 1px solid rgba(100, 140, 255, 0.15);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.upload-zone:hover .upload-icon-ring {
+    transform: scale(1.1);
+    border-color: rgba(100, 140, 255, 0.3);
+    box-shadow: 0 0 30px rgba(100, 140, 255, 0.15);
 }
 
 .upload-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: rgba(255, 255, 255, 0.3);
+    width: 2rem;
+    height: 2rem;
+    color: rgba(100, 140, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.upload-zone:hover .upload-icon {
+    color: rgba(120, 160, 255, 0.9);
 }
 
 .upload-text {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
     margin: 0 0 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.02em;
 }
 
 .upload-hint {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
     margin: 0;
     letter-spacing: 0.02em;
 }
@@ -177,20 +237,27 @@
 .upload-formats {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
 }
 
 .format-tag {
-    padding: 0.375rem 0;
-    background: transparent;
-    border: none;
-    font-size: 0.625rem;
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background: rgba(100, 140, 255, 0.08);
+    border: 1px solid rgba(100, 140, 255, 0.12);
+    border-radius: 4px;
+    font-size: 0.6875rem;
+    color: rgba(100, 140, 255, 0.7);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    transition: all 0.3s ease;
+}
+
+.upload-zone:hover .format-tag {
+    background: rgba(100, 140, 255, 0.12);
+    border-color: rgba(100, 140, 255, 0.2);
 }
 
 /* Preview Area */
@@ -202,11 +269,12 @@
 
 .preview-image-container {
     position: relative;
-    border-radius: 2px;
+    border-radius: 4px;
     overflow: hidden;
     background: #000;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(100, 140, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .preview-image {
@@ -226,57 +294,79 @@
 
 .jewscan-actions {
     display: flex;
-    gap: 1px;
-    background: rgba(255, 255, 255, 0.06);
+    gap: 1rem;
 }
 
-/* Buttons - Minimal high-tech */
+/* Buttons - Premium Style */
 .jewscan-btn {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.625rem;
-    padding: 1rem 1.5rem;
-    border-radius: 0;
-    font-size: 0.75rem;
-    font-weight: 500;
+    gap: 0.75rem;
+    padding: 1.125rem 1.75rem;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.jewscan-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.jewscan-btn:hover::before {
+    opacity: 1;
 }
 
 .jewscan-btn svg {
-    width: 1rem;
-    height: 1rem;
-    opacity: 0.7;
+    width: 1.125rem;
+    height: 1.125rem;
+    opacity: 0.8;
 }
 
 .jewscan-btn.secondary {
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(255, 255, 255, 0.5);
+    background: rgba(100, 140, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(100, 140, 255, 0.15);
 }
 
 .jewscan-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.7);
+    background: rgba(100, 140, 255, 0.18);
+    border-color: rgba(100, 140, 255, 0.3);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(100, 140, 255, 0.15);
 }
 
 .jewscan-btn.primary {
-    background: rgba(199, 48, 48, 0.9);
-    color: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(135deg, rgba(80, 120, 220, 0.9) 0%, rgba(60, 100, 200, 0.95) 100%);
+    color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(80, 120, 220, 0.3);
 }
 
 .jewscan-btn.primary:hover {
-    background: rgba(199, 48, 48, 1);
+    background: linear-gradient(135deg, rgba(90, 130, 230, 1) 0%, rgba(70, 110, 210, 1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(80, 120, 220, 0.4);
 }
 
 .jewscan-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
+    transform: none !important;
 }
 
 /* Results Area */
@@ -288,10 +378,11 @@
 
 .results-image-container {
     position: relative;
-    border-radius: 2px;
+    border-radius: 4px;
     overflow: hidden;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(100, 140, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .results-image {
@@ -301,72 +392,81 @@
 }
 
 .results-panel {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 2px;
-    padding: 1.75rem;
+    background: rgba(15, 25, 50, 0.5);
+    border: 1px solid rgba(100, 140, 255, 0.12);
+    border-radius: 4px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
 }
 
 .results-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(100, 140, 255, 0.08);
 }
 
 .results-title {
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
 
 .results-confidence {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     color: #4ade80;
-    background: transparent;
-    padding: 0;
-    font-weight: 500;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
     font-family: 'SF Mono', Monaco, monospace;
     letter-spacing: 0.05em;
+    border: 1px solid rgba(74, 222, 128, 0.2);
 }
 
 .ethnicity-results {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
 }
 
 .primary-result {
     text-align: center;
-    padding: 1rem 0 1.5rem;
+    padding: 1.25rem 0 1.75rem;
 }
 
 .result-badge {
     display: inline-block;
-    padding: 0.875rem 2rem;
-    border-radius: 2px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border: 1px solid;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(100, 140, 255, 0.3); }
+    50% { box-shadow: 0 0 20px 5px rgba(100, 140, 255, 0.15); }
 }
 
 .ethnicity-breakdown {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
 .breakdown-title {
-    font-size: 0.625rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.35);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin: 0 0 0.5rem;
@@ -375,146 +475,214 @@
 .ethnicity-item {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
 .ethnicity-label {
-    width: 130px;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
+    width: 140px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
     flex-shrink: 0;
     letter-spacing: 0.02em;
 }
 
 .ethnicity-bar-container {
     flex: 1;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 0;
+    height: 6px;
+    background: rgba(100, 140, 255, 0.08);
+    border-radius: 3px;
     overflow: hidden;
 }
 
 .ethnicity-bar {
     height: 100%;
-    border-radius: 0;
-    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ethnicity-bar.jewish {
-    background: linear-gradient(90deg, #c73030, #a02020);
+    background: linear-gradient(90deg, #5078dc, #3058bc);
+    box-shadow: 0 0 15px rgba(80, 120, 220, 0.4);
 }
 
 .ethnicity-bar.other {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .ethnicity-percent {
-    width: 45px;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    width: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
     text-align: right;
     font-family: 'SF Mono', Monaco, monospace;
     letter-spacing: 0.05em;
 }
 
 .results-actions {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
 }
 
 /* Analysis Text */
 .analysis-text {
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(100, 140, 255, 0.08);
 }
 
 .analysis-text p {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
-    line-height: 1.7;
-    margin: 0.75rem 0 0;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.8;
+    margin: 0.875rem 0 0;
     letter-spacing: 0.01em;
 }
 
-/* Loading - Scanning Animation */
+/* Loading - Premium Scanning Animation */
 .jewscan-loading {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5rem 2rem;
+    position: relative;
 }
 
 .loading-spinner {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-top-color: rgba(199, 48, 48, 0.8);
-    border-radius: 0;
-    animation: spin 1s linear infinite;
-    margin-bottom: 2rem;
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+    margin-bottom: 2.5rem;
 }
 
-@keyframes spin {
+.loading-spinner::before,
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.loading-spinner::before {
+    border-top-color: rgba(100, 140, 255, 0.8);
+    border-right-color: rgba(100, 140, 255, 0.3);
+    animation: spinnerRotate 1s linear infinite;
+}
+
+.loading-spinner::after {
+    inset: 6px;
+    border-bottom-color: rgba(100, 180, 255, 0.6);
+    border-left-color: rgba(100, 180, 255, 0.2);
+    animation: spinnerRotate 1.5s linear infinite reverse;
+}
+
+@keyframes spinnerRotate {
     to { transform: rotate(360deg); }
 }
 
 .loading-text {
-    font-size: 0.6875rem;
-    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.75rem;
+    color: rgba(100, 140, 255, 0.7);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
+    animation: textPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 /* Scanning icon animation */
 .scanning-icon {
-    animation: spin 1s linear infinite;
+    animation: spinnerRotate 1s linear infinite;
 }
 
-/* Scan Line Animation */
+/* Scan Line Animation - Premium */
 .scan-line {
     position: absolute;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #c73030, transparent);
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(100, 140, 255, 0.3), 
+        rgba(100, 180, 255, 0.8), 
+        rgba(100, 140, 255, 0.3), 
+        transparent);
     opacity: 0;
     top: 0;
+    box-shadow: 
+        0 0 20px rgba(100, 140, 255, 0.5),
+        0 0 60px rgba(100, 140, 255, 0.3);
 }
 
 .scan-line.active {
     opacity: 1;
-    animation: scanLine 2.5s linear infinite;
+    animation: scanLineMove 2s ease-in-out infinite;
 }
 
-@keyframes scanLine {
-    0% { top: 0; }
-    50% { top: calc(100% - 1px); }
-    100% { top: 0; }
+@keyframes scanLineMove {
+    0% { 
+        top: 0; 
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    45% { 
+        top: calc(100% - 3px); 
+        opacity: 1;
+    }
+    55% {
+        top: calc(100% - 3px);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% { 
+        top: 0; 
+        opacity: 0;
+    }
 }
 
-/* Face Grid - Technical */
+/* Face Grid - Technical Overlay */
 .face-grid {
     position: absolute;
     inset: 0;
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .face-grid.active {
     opacity: 1;
 }
 
+/* Corner brackets */
 .face-grid::before {
     content: '';
     position: absolute;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    border: 1px solid rgba(199, 48, 48, 0.4);
-    border-radius: 0;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    border: 2px solid rgba(100, 140, 255, 0.5);
+    border-radius: 4px;
+    animation: gridPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.02);
+    }
 }
 
 .face-grid::after {
@@ -522,28 +690,73 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(199, 48, 48, 0.6);
+    border: 2px solid rgba(100, 180, 255, 0.7);
+    border-radius: 50%;
+    animation: centerPulse 1s ease-in-out infinite;
+}
+
+@keyframes centerPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.3;
+    }
+}
+
+/* Additional scan effects */
+.preview-image-container.scanning::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(transparent 50%, rgba(100, 140, 255, 0.02) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanlines 0.1s steps(60) infinite;
+}
+
+@keyframes scanlines {
+    to { background-position: 0 -4px; }
+}
+
+/* Data points animation during scan */
+.preview-image-container.scanning .data-point {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(100, 180, 255, 0.8);
+    border-radius: 50%;
+    animation: dataPointBlink 0.8s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(100, 180, 255, 0.5);
+}
+
+@keyframes dataPointBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.5); }
 }
 
 /* Face Marker */
 .face-marker {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
-    border: 1px solid rgba(199, 48, 48, 0.5);
-    border-radius: 0;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    border: 2px solid rgba(100, 140, 255, 0.6);
+    border-radius: 4px;
 }
 
 .face-marker::before,
 .face-marker::after {
     content: '';
     position: absolute;
-    background: rgba(199, 48, 48, 0.8);
+    background: rgba(100, 180, 255, 0.8);
 }
 
 .face-marker::before {
@@ -564,14 +777,14 @@
 
 /* Disclaimer */
 .jewscan-disclaimer {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    font-size: 0.625rem;
-    color: rgba(255, 255, 255, 0.2);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.25);
     text-align: left;
-    line-height: 1.8;
+    line-height: 1.9;
     letter-spacing: 0.02em;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(100, 140, 255, 0.08);
 }
 
 /* Footer */
@@ -585,13 +798,13 @@
 }
 
 .jewscan-footer a {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(100, 140, 255, 0.4);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .jewscan-footer a:hover {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(100, 140, 255, 0.7);
 }
 
 /* Active nav link */
@@ -603,27 +816,31 @@
 @media (max-width: 900px) {
     .jewscan-layout {
         flex-direction: column;
-        gap: 3rem;
+        gap: 3.5rem;
         align-items: center;
     }
     
     .jewscan-info {
-        max-width: 520px;
+        max-width: 560px;
     }
     
     .jewscan-logo-large {
-        margin: 0 auto 2rem;
+        margin: 0 auto 2.5rem;
         display: block;
     }
     
     .jewscan-container {
-        max-width: 520px;
+        max-width: 560px;
     }
 }
 
 @media (max-width: 640px) {
     .jewscan-main {
-        padding: 2rem 1rem 4rem;
+        padding: 2rem 1rem 5rem;
+    }
+    
+    .jewscan-card {
+        padding: 1.5rem;
     }
     
     .upload-zone {
@@ -635,6 +852,10 @@
     }
     
     .jewscan-logo-large {
-        width: 120px;
+        width: 140px;
+    }
+    
+    .ai-feature {
+        gap: 1rem;
     }
 }

@@ -121,7 +121,7 @@ uploadZone.addEventListener('drop', (e) => {
 document.getElementById('scanNewBtn').addEventListener('click', resetScanStates);
 document.getElementById('resultsNewBtn').addEventListener('click', resetScanStates);
 
-// Draw face landmarks with animation
+// Draw face landmarks with animation - Premium Blue Theme
 function drawLandmarks(canvas, detections, progress = 1) {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -139,9 +139,14 @@ function drawLandmarks(canvas, detections, progress = 1) {
     // Draw landmark points
     const pointsToDraw = Math.floor(positions.length * progress);
     
-    ctx.fillStyle = 'rgba(199, 48, 48, 0.9)';
-    ctx.strokeStyle = 'rgba(199, 48, 48, 0.5)';
-    ctx.lineWidth = 1;
+    // Premium blue gradient colors
+    ctx.fillStyle = 'rgba(100, 160, 255, 0.95)';
+    ctx.strokeStyle = 'rgba(100, 140, 255, 0.6)';
+    ctx.lineWidth = 1.5;
+    
+    // Draw glow effect
+    ctx.shadowColor = 'rgba(100, 160, 255, 0.5)';
+    ctx.shadowBlur = 8;
     
     // Draw points
     for (let i = 0; i < pointsToDraw; i++) {
@@ -157,7 +162,8 @@ function drawLandmarks(canvas, detections, progress = 1) {
     // Draw connecting lines for face outline
     if (progress > 0.3) {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(199, 48, 48, 0.4)';
+        ctx.strokeStyle = 'rgba(100, 160, 255, 0.5)';
+        ctx.shadowBlur = 4;
         
         // Jaw line (0-16)
         for (let i = 0; i < Math.min(17, pointsToDraw); i++) {
@@ -427,10 +433,12 @@ function showResults(data, detections) {
             const scaleX = resultsCanvas.width / resultsImage.naturalWidth;
             const scaleY = resultsCanvas.height / resultsImage.naturalHeight;
             
-            // Draw all points and lines
-            ctx.fillStyle = 'rgba(199, 48, 48, 0.8)';
-            ctx.strokeStyle = 'rgba(199, 48, 48, 0.4)';
-            ctx.lineWidth = 1;
+            // Draw all points and lines - Blue theme
+            ctx.fillStyle = 'rgba(100, 160, 255, 0.9)';
+            ctx.strokeStyle = 'rgba(100, 140, 255, 0.5)';
+            ctx.lineWidth = 1.5;
+            ctx.shadowColor = 'rgba(100, 160, 255, 0.4)';
+            ctx.shadowBlur = 6;
             
             // Draw points
             positions.forEach(point => {
@@ -467,10 +475,10 @@ function showResults(data, detections) {
     
     if (jewishPercentage >= 75) {
         resultText = 'Likely Jewish/Israeli';
-        resultColor = '#ff6b6b';
+        resultColor = '#6b8cff';
     } else if (jewishPercentage >= 50) {
         resultText = 'Possible Jewish/Israeli heritage';
-        resultColor = '#fbbf24';
+        resultColor = '#8b9eff';
     } else if (jewishPercentage >= 25) {
         resultText = 'Some Jewish/Israeli markers detected';
         resultColor = '#60a5fa';

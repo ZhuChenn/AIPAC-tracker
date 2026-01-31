@@ -1,0 +1,190 @@
+/* Hall of Jews Page Styles */
+
+.hall-page {
+    min-height: 100vh;
+    background: #030508;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle star background */
+.hall-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 220px 150px, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 280px 90px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 320px 180px, rgba(255,255,255,0.07), transparent),
+        radial-gradient(1px 1px at 380px 30px, rgba(255,255,255,0.11), transparent),
+        radial-gradient(1px 1px at 420px 120px, rgba(255,255,255,0.09), transparent);
+    background-size: 500px 200px;
+    animation: starFloat 80s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes starFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
+}
+
+.hall-main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem 8rem;
+}
+
+/* Header */
+.hall-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hall-title {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+}
+
+.hall-subtitle {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Grid */
+.hall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cards */
+.hall-card {
+    background: rgba(10, 15, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+.hall-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+}
+
+.hall-card-image {
+    aspect-ratio: 1;
+    background: rgba(20, 25, 40, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hall-placeholder {
+    font-family: 'Manrope', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.hall-card-info {
+    padding: 1.5rem;
+}
+
+.hall-card-percentage {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.hall-card-name {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.25rem;
+}
+
+.hall-card-label {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* CTA */
+.hall-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hall-cta-text {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5rem;
+}
+
+.hall-cta-btn {
+    display: inline-block;
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.hall-cta-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hall-main {
+        padding: 5rem 1.5rem 7rem;
+    }
+    
+    .hall-title {
+        font-size: 2.25rem;
+    }
+    
+    .hall-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+    }
+}

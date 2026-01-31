@@ -654,3 +654,73 @@ document.getElementById('downloadResultBtn').addEventListener('click', () => {
     
     img.src = imageData;
 });
+
+// Submit to Hall of Jews
+document.getElementById('submitToHallBtn').addEventListener('click', () => {
+    if (!window.lastScanResults) return;
+    
+    const { imageData, jewishPercentage } = window.lastScanResults;
+    
+    // Prompt for name
+    const name = prompt('Enter a name for the Hall of Jews:', 'Anonymous');
+    if (name === null) return; // Cancelled
+    
+    // Get hall entries from localStorage
+    let entries = [];
+    try {
+        const stored = localStorage.getItem('jewscan_hall');
+        entries = stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        entries = [];
+    }
+    
+    // Create thumbnail image (smaller version)
+    const img = new Image();
+    img.onload = () => {
+        const thumbCanvas = document.createElement('canvas');
+        const ctx = thumbCanvas.getContext('2d');
+        thumbCanvas.width = 150;
+        thumbCanvas.height = 150;
+        
+        // Crop to square and draw
+        const size = Math.min(img.width, img.height);
+        const sx = (img.width - size) / 2;
+        const sy = (img.height - size) / 2;
+        ctx.drawImage(img, sx, sy, size, size, 0, 0, 150, 150);
+        
+        const thumbData = thumbCanvas.toDataURL('image/jpeg', 0.7);
+        
+        // Add entry
+        const newEntry = {
+            id: Date.now(),
+            name: name || 'Anonymous',
+            percentage: jewishPercentage,
+            image: thumbData,
+            date: new Date().toISOString()
+        };
+        
+        entries.push(newEntry);
+        entries.sort((a, b) => b.percentage - a.percentage);
+        if (entries.length > 50) entries.length = 50;
+        
+        localStorage.setItem('jewscan_hall', JSON.stringify(entries));
+        
+        // Update button to show success
+        const btn = document.getElementById('submitToHallBtn');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = `
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Added to Hall!
+        `;
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.disabled = false;
+        }, 2000);
+    };
+    
+    img.src = imageData;
+});

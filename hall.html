@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hall of Jews - JewScan</title>
-    <meta name="description" content="Notable scans from JewScan">
+    <meta name="description" content="Highest scoring JewScan results">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,86 +30,22 @@
     <main class="hall-main">
         <div class="hall-header">
             <h1 class="hall-title">Hall of Jews</h1>
-            <p class="hall-subtitle">Notable figures analyzed by JewScan</p>
+            <p class="hall-subtitle">Highest scoring scans • Updated in real-time</p>
         </div>
         
-        <div class="hall-grid">
-            <!-- Entry 1 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">87%</div>
-                    <div class="hall-card-name">Mark Zuckerberg</div>
-                    <div class="hall-card-label">CEO of Meta</div>
-                </div>
-            </div>
-            
-            <!-- Entry 2 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">92%</div>
-                    <div class="hall-card-name">Larry David</div>
-                    <div class="hall-card-label">Comedian</div>
-                </div>
-            </div>
-            
-            <!-- Entry 3 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">78%</div>
-                    <div class="hall-card-name">Natalie Portman</div>
-                    <div class="hall-card-label">Actress</div>
-                </div>
-            </div>
-            
-            <!-- Entry 4 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">85%</div>
-                    <div class="hall-card-name">Ben Shapiro</div>
-                    <div class="hall-card-label">Political Commentator</div>
-                </div>
-            </div>
-            
-            <!-- Entry 5 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">94%</div>
-                    <div class="hall-card-name">Jerry Seinfeld</div>
-                    <div class="hall-card-label">Comedian</div>
-                </div>
-            </div>
-            
-            <!-- Entry 6 -->
-            <div class="hall-card">
-                <div class="hall-card-image">
-                    <div class="hall-placeholder">?</div>
-                </div>
-                <div class="hall-card-info">
-                    <div class="hall-card-percentage">81%</div>
-                    <div class="hall-card-name">Scarlett Johansson</div>
-                    <div class="hall-card-label">Actress</div>
-                </div>
-            </div>
+        <div class="hall-leaderboard" id="leaderboard">
+            <!-- Entries injected by JS -->
+        </div>
+        
+        <div class="hall-empty" id="emptyState" style="display: none;">
+            <div class="empty-icon">👤</div>
+            <p class="empty-text">No entries yet</p>
+            <p class="empty-subtext">Be the first to make the Hall!</p>
         </div>
         
         <div class="hall-cta">
-            <p class="hall-cta-text">Want to add someone to the Hall?</p>
-            <a href="/" class="hall-cta-btn">Scan Now</a>
+            <p class="hall-cta-text">Think you can make the leaderboard?</p>
+            <a href="/" class="hall-cta-btn">Get Scanned</a>
         </div>
     </main>
 
@@ -126,5 +62,7 @@
             <span class="mobile-nav-label">Article</span>
         </a>
     </nav>
+    
+    <script src="hall.js"></script>
 </body>
 </html>

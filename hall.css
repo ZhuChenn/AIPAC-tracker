@@ -1,4 +1,4 @@
-/* Hall of Jews Page Styles */
+/* Hall of Jews Page Styles - Leaderboard */
 
 .hall-page {
     min-height: 100vh;
@@ -42,114 +42,207 @@
 .hall-main {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 6rem 2rem 8rem;
+    padding: 6rem 1.5rem 8rem;
 }
 
 /* Header */
 .hall-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .hall-title {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.95);
-    margin: 0 0 1rem;
+    margin: 0 0 0.75rem;
     letter-spacing: -0.02em;
 }
 
 .hall-subtitle {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.35);
     margin: 0;
     letter-spacing: 0.02em;
 }
 
-/* Grid */
-.hall-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+/* Leaderboard */
+.hall-leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-/* Cards */
-.hall-card {
-    background: rgba(10, 15, 25, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: all 0.3s ease;
-}
-
-.hall-card:hover {
-    border-color: rgba(255, 255, 255, 0.12);
-    transform: translateY(-4px);
-}
-
-.hall-card-image {
-    aspect-ratio: 1;
-    background: rgba(20, 25, 40, 0.5);
+/* Leaderboard Entry */
+.hall-entry {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 1rem;
+    background: rgba(10, 15, 25, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.hall-placeholder {
-    font-family: 'Manrope', sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.1);
+.hall-entry.top-3 {
+    background: rgba(15, 20, 35, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.hall-card-info {
-    padding: 1.5rem;
+.hall-entry.rank-1 {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 180, 0, 0.04) 100%);
+    border-color: rgba(255, 215, 0, 0.2);
 }
 
-.hall-card-percentage {
+.hall-entry.rank-2 {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.06) 0%, rgba(150, 150, 150, 0.03) 100%);
+    border-color: rgba(192, 192, 192, 0.15);
+}
+
+.hall-entry.rank-3 {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.06) 0%, rgba(180, 100, 30, 0.03) 100%);
+    border-color: rgba(205, 127, 50, 0.15);
+}
+
+/* Rank */
+.hall-rank {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    width: 2rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.hall-entry.rank-1 .hall-rank {
+    color: rgba(255, 215, 0, 0.9);
+    font-size: 1.25rem;
+}
+
+.hall-entry.rank-2 .hall-rank {
+    color: rgba(192, 192, 192, 0.9);
+    font-size: 1.125rem;
+}
+
+.hall-entry.rank-3 .hall-rank {
+    color: rgba(205, 127, 50, 0.9);
+    font-size: 1rem;
+}
+
+/* Image */
+.hall-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+}
+
+.hall-entry.top-3 .hall-image {
+    width: 56px;
+    height: 56px;
+}
+
+/* Info */
+.hall-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.hall-name {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hall-date {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Percentage */
+.hall-percentage {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1.5rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.95);
-    line-height: 1;
-    margin-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
-.hall-card-name {
+.hall-entry.rank-1 .hall-percentage {
+    font-size: 1.75rem;
+    color: rgba(255, 215, 0, 0.95);
+}
+
+.hall-entry.rank-2 .hall-percentage {
+    font-size: 1.625rem;
+}
+
+.hall-entry.rank-3 .hall-percentage {
+    font-size: 1.5rem;
+}
+
+.hall-percentage span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+/* Empty State */
+.hall-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.empty-text {
     font-family: 'Manrope', -apple-system, sans-serif;
     font-size: 1.125rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 0.25rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 0.5rem;
 }
 
-.hall-card-label {
+.empty-subtext {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
 }
 
 /* CTA */
 .hall-cta {
     text-align: center;
-    margin-top: 4rem;
-    padding-top: 3rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hall-cta-text {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0 0 1.5rem;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0 1.25rem;
 }
 
 .hall-cta-btn {
@@ -174,17 +267,35 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .hall-main {
-        padding: 5rem 1.5rem 7rem;
+        padding: 5rem 1rem 7rem;
     }
     
     .hall-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
     
-    .hall-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1rem;
+    .hall-entry {
+        padding: 0.875rem 1rem;
+        gap: 0.75rem;
+    }
+    
+    .hall-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hall-entry.top-3 .hall-image {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .hall-percentage {
+        font-size: 1.25rem;
+    }
+    
+    .hall-entry.rank-1 .hall-percentage {
+        font-size: 1.5rem;
     }
 }

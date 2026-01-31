@@ -20,6 +20,7 @@
             
             <!-- Desktop Navigation -->
             <nav class="nav-desktop">
+                <a href="/" class="nav-link">JewScan</a>
                 <a href="/hall" class="nav-link active">Hall of Jews</a>
                 <a href="https://x.com/sqn/status/2017209112900018180" target="_blank" class="nav-link">Article</a>
             </nav>
@@ -34,12 +35,124 @@
             <p class="hall-description">Reserved for those who scored the highest on the JewScan analysis. These individuals have been identified as possessing the strongest Jewish/Israeli facial markers, earning them a place among the elite — the Super Jews.</p>
         </div>
         
+        <!-- Featured Super Jews Section -->
+        <div class="featured-section">
+            <div class="featured-header">
+                <div class="featured-badge">
+                    <span class="badge-icon">★</span>
+                    <span class="badge-text">VERIFIED SUPER JEWS</span>
+                </div>
+                <h2 class="featured-title">Hall of Fame</h2>
+                <p class="featured-subtitle">AI-analyzed individuals with exceptional Jewish phenotypic markers</p>
+            </div>
+            
+            <div class="featured-grid">
+                <!-- Subject 1 -->
+                <div class="featured-card">
+                    <div class="card-image-container">
+                        <img src="hall-1.svg" alt="Subject 001" class="card-image">
+                        <div class="card-overlay">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="card-badge">97%</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-id">SUBJECT 001</div>
+                        <div class="card-percentage">97<span>%</span></div>
+                        <div class="card-label">Jewish Likelihood</div>
+                        <div class="card-analysis" id="analysis-1">
+                            <div class="analysis-loading">Analyzing...</div>
+                        </div>
+                        <div class="card-markers">
+                            <div class="marker">
+                                <span class="marker-label">Ashkenazi</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 94%"></div></div>
+                                <span class="marker-value">94%</span>
+                            </div>
+                            <div class="marker">
+                                <span class="marker-label">Sephardic</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 78%"></div></div>
+                                <span class="marker-value">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subject 2 -->
+                <div class="featured-card">
+                    <div class="card-image-container">
+                        <img src="hall-2.svg" alt="Subject 002" class="card-image">
+                        <div class="card-overlay">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="card-badge">94%</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-id">SUBJECT 002</div>
+                        <div class="card-percentage">94<span>%</span></div>
+                        <div class="card-label">Jewish Likelihood</div>
+                        <div class="card-analysis" id="analysis-2">
+                            <div class="analysis-loading">Analyzing...</div>
+                        </div>
+                        <div class="card-markers">
+                            <div class="marker">
+                                <span class="marker-label">Ashkenazi</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 91%"></div></div>
+                                <span class="marker-value">91%</span>
+                            </div>
+                            <div class="marker">
+                                <span class="marker-label">Sephardic</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 82%"></div></div>
+                                <span class="marker-value">82%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subject 3 -->
+                <div class="featured-card">
+                    <div class="card-image-container">
+                        <img src="hall-3.svg" alt="Subject 003" class="card-image">
+                        <div class="card-overlay">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="card-badge">92%</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-id">SUBJECT 003</div>
+                        <div class="card-percentage">92<span>%</span></div>
+                        <div class="card-label">Jewish Likelihood</div>
+                        <div class="card-analysis" id="analysis-3">
+                            <div class="analysis-loading">Analyzing...</div>
+                        </div>
+                        <div class="card-markers">
+                            <div class="marker">
+                                <span class="marker-label">Ashkenazi</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 88%"></div></div>
+                                <span class="marker-value">88%</span>
+                            </div>
+                            <div class="marker">
+                                <span class="marker-label">Sephardic</span>
+                                <div class="marker-bar"><div class="marker-fill" style="width: 75%"></div></div>
+                                <span class="marker-value">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Divider -->
+        <div class="section-divider">
+            <span class="divider-text">USER SUBMISSIONS</span>
+        </div>
+        
         <div class="hall-leaderboard" id="leaderboard">
             <!-- Entries injected by JS -->
         </div>
         
         <div class="hall-empty" id="emptyState" style="display: none;">
-            <div class="empty-icon">👤</div>
+            <div class="empty-icon">—</div>
             <p class="empty-text">No entries yet</p>
             <p class="empty-subtext">Be the first to make the Hall!</p>
         </div>

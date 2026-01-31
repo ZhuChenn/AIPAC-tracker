@@ -383,7 +383,7 @@ document.getElementById('analyzeScanBtn').addEventListener('click', async () => 
         
         // Animate face mapping
         loadingText.textContent = 'Mapping';
-        await animateFaceMapping(faceCanvas, detections, 2500);
+        await animateFaceMapping(faceCanvas, detections, 1500);
         
         // Stop scan line
         scanLine.classList.remove('active');

@@ -4,7 +4,7 @@
     min-height: 100vh;
     background: #030508;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Subtle star background */
@@ -55,11 +55,34 @@
 
 .hall-title {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.95);
-    margin: 0 0 0.75rem;
-    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(
+        90deg,
+        #e8d5b7 0%,
+        #f5e6c8 15%,
+        #c9a86c 30%,
+        #8b7355 45%,
+        #d4c4a8 60%,
+        #a69478 75%,
+        #e8d5b7 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldShift 8s ease-in-out infinite;
+}
+
+@keyframes goldShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hall-subtitle {
@@ -82,6 +105,266 @@
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Featured Section */
+.featured-section {
+    margin-bottom: 3rem;
+}
+
+.featured-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, rgba(100, 140, 255, 0.15) 0%, rgba(60, 100, 200, 0.1) 100%);
+    border: 1px solid rgba(100, 140, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.badge-icon {
+    font-size: 0.75rem;
+    color: rgba(100, 180, 255, 0.9);
+}
+
+.badge-text {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: rgba(100, 180, 255, 0.9);
+    letter-spacing: 0.1em;
+}
+
+.featured-title {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.featured-subtitle {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+/* Featured Grid */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* Featured Card */
+.featured-card {
+    background: rgba(8, 12, 24, 0.6);
+    border: 1px solid rgba(100, 140, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+.featured-card:hover {
+    border-color: rgba(100, 140, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Card Image Container */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(8, 12, 24, 0.8) 100%
+    );
+    pointer-events: none;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.6), transparent);
+    animation: scanMove 3s ease-in-out infinite;
+}
+
+@keyframes scanMove {
+    0%, 100% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.card-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(100, 180, 255, 0.2);
+    border: 1px solid rgba(100, 180, 255, 0.3);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(100, 200, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Card Content */
+.card-content {
+    padding: 1rem;
+}
+
+.card-id {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: rgba(100, 140, 255, 0.6);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.card-percentage {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1;
+    margin-bottom: 0.125rem;
+}
+
+.card-percentage span {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+.card-label {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.75rem;
+}
+
+.card-analysis {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    min-height: 3rem;
+}
+
+.analysis-loading {
+    color: rgba(100, 140, 255, 0.5);
+    font-style: italic;
+}
+
+/* Markers */
+.card-markers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.marker {
+    display: grid;
+    grid-template-columns: 60px 1fr 36px;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.marker-label {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.marker-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.marker-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(60, 100, 180, 0.8), rgba(100, 160, 255, 0.8));
+    border-radius: 2px;
+    transition: width 0.6s ease;
+}
+
+.marker-value {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: right;
+}
+
+/* Section Divider */
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 0 2rem;
+    position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 140, 255, 0.15), transparent);
+}
+
+.divider-text {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: rgba(100, 140, 255, 0.4);
+    letter-spacing: 0.15em;
+    padding: 0 1rem;
 }
 
 /* Leaderboard */
@@ -280,13 +563,29 @@
 }
 
 /* Responsive */
+@media (max-width: 800px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .card-percentage {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 640px) {
     .hall-main {
         padding: 5rem 1rem 7rem;
     }
     
     .hall-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .featured-title {
+        font-size: 1.25rem;
     }
     
     .hall-entry {

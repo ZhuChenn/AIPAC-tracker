@@ -1,5 +1,31 @@
 // Hall of Jews - Leaderboard JavaScript
 
+// Featured subjects descriptions (AI-generated analysis)
+const featuredDescriptions = [
+    {
+        id: 1,
+        text: "Pronounced aquiline nasal bridge with distinctive Semitic bone structure. High cheekbone placement and deep-set orbital characteristics consistent with Levantine ancestry. Facial proportions show strong markers associated with Eastern European Ashkenazi lineage."
+    },
+    {
+        id: 2,
+        text: "Classic Mediterranean-Jewish phenotype with refined nasal cartilage structure. Prominent brow ridge and characteristic periorbital features. Dermal pigmentation and hair texture patterns indicate mixed Ashkenazi-Sephardic genetic markers."
+    },
+    {
+        id: 3,
+        text: "Distinctive Semitic facial geometry with pronounced zygomatic arch. Nasal dorsum profile and labial structure consistent with Jewish diaspora populations. Cranial proportions suggest strong Ashkenazi heritage with possible Mizrahi admixture."
+    }
+];
+
+// Initialize featured descriptions
+function initFeaturedDescriptions() {
+    featuredDescriptions.forEach(desc => {
+        const el = document.getElementById(`analysis-${desc.id}`);
+        if (el) {
+            el.innerHTML = desc.text;
+        }
+    });
+}
+
 // Get hall entries from localStorage
 function getHallEntries() {
     const entries = localStorage.getItem('jewscan_hall');
@@ -90,7 +116,10 @@ function renderLeaderboard() {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', renderLeaderboard);
+document.addEventListener('DOMContentLoaded', () => {
+    initFeaturedDescriptions();
+    renderLeaderboard();
+});
 
 // Expose addToHall globally for the scan page to use
 window.addToHall = addToHall;

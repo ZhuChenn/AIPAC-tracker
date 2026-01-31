@@ -484,34 +484,69 @@
     letter-spacing: 0.01em;
 }
 
-/* Loading */
+/* Loading - Premium Style */
 .jewscan-loading {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 5rem 2rem;
+    min-height: 300px;
 }
 
 .loading-spinner {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid rgba(100, 140, 200, 0.15);
-    border-top-color: rgba(100, 140, 200, 0.7);
-    border-radius: 0;
-    animation: spin 1s linear infinite;
-    margin-bottom: 2rem;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    margin-bottom: 2.5rem;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.loading-spinner::before,
+.loading-spinner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+}
+
+.loading-spinner::before {
+    border-top-color: rgba(255, 255, 255, 0.8);
+    animation: spinnerRotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-spinner::after {
+    inset: 8px;
+    border-right-color: rgba(255, 255, 255, 0.3);
+    animation: spinnerRotate 1.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+}
+
+@keyframes spinnerRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .loading-text {
-    font-size: 0.6875rem;
-    color: rgba(255, 255, 255, 0.35);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
+    animation: textFade 2s ease-in-out infinite;
+}
+
+@keyframes textFade {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+}
+
+.loading-subtext {
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.25);
+    margin-top: 0.75rem;
+    letter-spacing: 0.05em;
 }
 
 /* Scanning icon animation */

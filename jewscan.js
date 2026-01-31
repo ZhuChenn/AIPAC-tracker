@@ -345,7 +345,7 @@ document.getElementById('analyzeScanBtn').addEventListener('click', async () => 
     
     // Make sure models are loaded
     if (!modelsLoaded) {
-        loadingText.textContent = 'Loading face detection...';
+        loadingText.textContent = 'Initializing';
         scanPreviewArea.style.display = 'none';
         scanLoading.style.display = 'flex';
         await loadModels();
@@ -367,7 +367,7 @@ document.getElementById('analyzeScanBtn').addEventListener('click', async () => 
     
     try {
         // Detect face and landmarks
-        loadingText.textContent = 'Detecting facial landmarks...';
+        loadingText.textContent = 'Detecting';
         
         const detections = await faceapi
             .detectAllFaces(previewImage, new faceapi.TinyFaceDetectorOptions())
@@ -382,7 +382,7 @@ document.getElementById('analyzeScanBtn').addEventListener('click', async () => 
         currentDetections = detections;
         
         // Animate face mapping
-        loadingText.textContent = 'Mapping 68 facial points...';
+        loadingText.textContent = 'Mapping';
         await animateFaceMapping(faceCanvas, detections, 2500);
         
         // Stop scan line
@@ -391,7 +391,7 @@ document.getElementById('analyzeScanBtn').addEventListener('click', async () => 
         // Show loading for API call
         scanPreviewArea.style.display = 'none';
         scanLoading.style.display = 'flex';
-        loadingText.textContent = 'Analyzing ancestry markers...';
+        loadingText.textContent = 'Analyzing';
         
         // Call backend API
         const result = await analyzeImage(currentImageData);

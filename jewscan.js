@@ -485,38 +485,33 @@ function showResults(data, detections) {
     
     ethnicityResults.innerHTML = `
         <div class="primary-result">
+            <div class="result-percentage">${jewishPercentage}<span class="percent-symbol">%</span></div>
+            <div class="result-label">Jewish/Israeli Likelihood</div>
             <div class="result-badge" style="background: ${resultColor}15; color: ${resultColor}; border-color: ${resultColor}30;">
                 ${resultText}
             </div>
         </div>
         
         <div class="ethnicity-breakdown">
-            <h4 class="breakdown-title">Genetic Markers Analysis</h4>
+            <h4 class="breakdown-title">Detailed Breakdown</h4>
             <div class="ethnicity-item">
-                <span class="ethnicity-label">Jewish/Israeli</span>
+                <span class="ethnicity-label">Ashkenazi</span>
                 <div class="ethnicity-bar-container">
-                    <div class="ethnicity-bar jewish" style="width: 0%;" data-width="${jewishPercentage}%"></div>
-                </div>
-                <span class="ethnicity-percent">${jewishPercentage}%</span>
-            </div>
-            <div class="ethnicity-item">
-                <span class="ethnicity-label">Ashkenazi markers</span>
-                <div class="ethnicity-bar-container">
-                    <div class="ethnicity-bar jewish" style="width: 0%; opacity: 0.7;" data-width="${ashkenazi}%"></div>
+                    <div class="ethnicity-bar jewish" style="width: 0%;" data-width="${ashkenazi}%"></div>
                 </div>
                 <span class="ethnicity-percent">${ashkenazi}%</span>
             </div>
             <div class="ethnicity-item">
-                <span class="ethnicity-label">Sephardic markers</span>
+                <span class="ethnicity-label">Sephardic</span>
                 <div class="ethnicity-bar-container">
-                    <div class="ethnicity-bar jewish" style="width: 0%; opacity: 0.7;" data-width="${sephardic}%"></div>
+                    <div class="ethnicity-bar jewish" style="width: 0%;" data-width="${sephardic}%"></div>
                 </div>
                 <span class="ethnicity-percent">${sephardic}%</span>
             </div>
             <div class="ethnicity-item">
-                <span class="ethnicity-label">Mizrahi markers</span>
+                <span class="ethnicity-label">Mizrahi</span>
                 <div class="ethnicity-bar-container">
-                    <div class="ethnicity-bar jewish" style="width: 0%; opacity: 0.7;" data-width="${mizrahi}%"></div>
+                    <div class="ethnicity-bar jewish" style="width: 0%;" data-width="${mizrahi}%"></div>
                 </div>
                 <span class="ethnicity-percent">${mizrahi}%</span>
             </div>

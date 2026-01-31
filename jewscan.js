@@ -139,14 +139,10 @@ function drawLandmarks(canvas, detections, progress = 1) {
     // Draw landmark points
     const pointsToDraw = Math.floor(positions.length * progress);
     
-    // Premium blue gradient colors
-    ctx.fillStyle = 'rgba(100, 160, 255, 0.95)';
-    ctx.strokeStyle = 'rgba(100, 140, 255, 0.6)';
-    ctx.lineWidth = 1.5;
-    
-    // Draw glow effect
-    ctx.shadowColor = 'rgba(100, 160, 255, 0.5)';
-    ctx.shadowBlur = 8;
+    // Clean blue colors - no glow
+    ctx.fillStyle = 'rgba(100, 140, 200, 0.8)';
+    ctx.strokeStyle = 'rgba(100, 140, 200, 0.5)';
+    ctx.lineWidth = 1;
     
     // Draw points
     for (let i = 0; i < pointsToDraw; i++) {
@@ -162,8 +158,7 @@ function drawLandmarks(canvas, detections, progress = 1) {
     // Draw connecting lines for face outline
     if (progress > 0.3) {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(100, 160, 255, 0.5)';
-        ctx.shadowBlur = 4;
+        ctx.strokeStyle = 'rgba(100, 140, 200, 0.4)';
         
         // Jaw line (0-16)
         for (let i = 0; i < Math.min(17, pointsToDraw); i++) {
@@ -433,12 +428,10 @@ function showResults(data, detections) {
             const scaleX = resultsCanvas.width / resultsImage.naturalWidth;
             const scaleY = resultsCanvas.height / resultsImage.naturalHeight;
             
-            // Draw all points and lines - Blue theme
-            ctx.fillStyle = 'rgba(100, 160, 255, 0.9)';
-            ctx.strokeStyle = 'rgba(100, 140, 255, 0.5)';
-            ctx.lineWidth = 1.5;
-            ctx.shadowColor = 'rgba(100, 160, 255, 0.4)';
-            ctx.shadowBlur = 6;
+            // Draw all points and lines - Clean blue, no glow
+            ctx.fillStyle = 'rgba(100, 140, 200, 0.7)';
+            ctx.strokeStyle = 'rgba(100, 140, 200, 0.4)';
+            ctx.lineWidth = 1;
             
             // Draw points
             positions.forEach(point => {

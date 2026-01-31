@@ -1,12 +1,8 @@
-/* JewScan Page Styles - Premium High Tech Edition */
+/* JewScan Page Styles - Clean Minimal Edition */
 
 .jewscan-page {
     min-height: 100vh;
     background: #030508;
-    background-image: 
-        radial-gradient(ellipse at 50% 0%, rgba(20, 40, 80, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 50%, rgba(30, 50, 100, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(40, 60, 120, 0.06) 0%, transparent 40%);
     background-attachment: fixed;
 }
 
@@ -42,7 +38,6 @@
     height: auto;
     margin-bottom: 3.5rem;
     opacity: 0.95;
-    filter: drop-shadow(0 0 30px rgba(100, 140, 255, 0.1));
 }
 
 /* AI Features */
@@ -56,27 +51,12 @@
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: fadeSlideIn 0.6s ease forwards;
-}
-
-.ai-feature:nth-child(1) { animation-delay: 0.1s; }
-.ai-feature:nth-child(2) { animation-delay: 0.2s; }
-.ai-feature:nth-child(3) { animation-delay: 0.3s; }
-.ai-feature:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeSlideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .ai-feature-number {
     font-size: 0.625rem;
     font-weight: 600;
-    color: rgba(100, 140, 255, 0.4);
+    color: rgba(100, 140, 200, 0.5);
     flex-shrink: 0;
     width: 1.75rem;
     font-family: 'SF Mono', Monaco, 'Courier New', monospace;
@@ -109,14 +89,9 @@
 
 /* Main Card */
 .jewscan-card {
-    background: rgba(10, 15, 30, 0.4);
-    border: 1px solid rgba(100, 140, 255, 0.1);
-    border-radius: 4px;
-    padding: 2rem;
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 4px 60px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 /* Upload Area */
@@ -126,110 +101,54 @@
 
 .upload-zone {
     position: relative;
-    border: 1px dashed rgba(100, 140, 255, 0.2);
-    border-radius: 4px;
+    border: 1px solid rgba(100, 140, 200, 0.12);
+    border-radius: 2px;
     padding: 5rem 3rem;
     text-align: center;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(20, 30, 60, 0.2);
-    overflow: hidden;
-}
-
-.upload-zone::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(100, 140, 255, 0.1), transparent 30%);
-    opacity: 0;
-    animation: none;
-}
-
-.upload-zone:hover::before {
-    opacity: 1;
-    animation: rotate 4s linear infinite;
-}
-
-@keyframes rotate {
-    to { transform: rotate(360deg); }
-}
-
-.upload-zone::after {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    background: rgba(10, 15, 30, 0.95);
-    border-radius: 3px;
-    z-index: 0;
-}
-
-.upload-zone > * {
-    position: relative;
-    z-index: 1;
+    transition: all 0.3s ease;
+    background: rgba(20, 30, 50, 0.15);
 }
 
 .upload-zone:hover {
-    border-color: rgba(100, 140, 255, 0.4);
-    background: rgba(30, 45, 80, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(100, 140, 255, 0.1);
+    border-color: rgba(100, 140, 200, 0.25);
+    background: rgba(25, 35, 60, 0.2);
 }
 
 .upload-zone.dragover {
-    border-color: rgba(100, 180, 255, 0.6);
-    background: rgba(40, 60, 100, 0.3);
-    transform: scale(1.01);
-}
-
-.upload-zone.dragover::before {
-    opacity: 1;
-    animation: rotate 2s linear infinite;
+    border-color: rgba(100, 150, 220, 0.4);
+    background: rgba(30, 45, 70, 0.25);
 }
 
 .upload-icon-ring {
-    width: 5rem;
-    height: 5rem;
-    margin: 0 auto 2.5rem;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(100, 140, 255, 0.1) 0%, rgba(60, 100, 200, 0.05) 100%);
-    border: 1px solid rgba(100, 140, 255, 0.15);
-    border-radius: 50%;
-    transition: all 0.4s ease;
-}
-
-.upload-zone:hover .upload-icon-ring {
-    transform: scale(1.1);
-    border-color: rgba(100, 140, 255, 0.3);
-    box-shadow: 0 0 30px rgba(100, 140, 255, 0.15);
+    background: transparent;
+    border: 1px solid rgba(100, 140, 200, 0.15);
+    border-radius: 2px;
 }
 
 .upload-icon {
-    width: 2rem;
-    height: 2rem;
-    color: rgba(100, 140, 255, 0.6);
-    transition: color 0.3s ease;
-}
-
-.upload-zone:hover .upload-icon {
-    color: rgba(120, 160, 255, 0.9);
+    width: 1.75rem;
+    height: 1.75rem;
+    color: rgba(100, 140, 200, 0.5);
 }
 
 .upload-text {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0 0 0.75rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.02em;
 }
 
 .upload-hint {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.3);
     margin: 0;
     letter-spacing: 0.02em;
 }
@@ -242,22 +161,15 @@
 }
 
 .format-tag {
-    padding: 0.5rem 1rem;
-    background: rgba(100, 140, 255, 0.08);
-    border: 1px solid rgba(100, 140, 255, 0.12);
-    border-radius: 4px;
-    font-size: 0.6875rem;
-    color: rgba(100, 140, 255, 0.7);
-    font-weight: 600;
+    padding: 0.375rem 0;
+    background: transparent;
+    border: none;
+    font-size: 0.625rem;
+    color: rgba(100, 140, 200, 0.4);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-    transition: all 0.3s ease;
-}
-
-.upload-zone:hover .format-tag {
-    background: rgba(100, 140, 255, 0.12);
-    border-color: rgba(100, 140, 255, 0.2);
 }
 
 /* Preview Area */
@@ -269,12 +181,11 @@
 
 .preview-image-container {
     position: relative;
-    border-radius: 4px;
+    border-radius: 2px;
     overflow: hidden;
     background: #000;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(100, 140, 255, 0.15);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(100, 140, 200, 0.12);
 }
 
 .preview-image {
@@ -294,79 +205,57 @@
 
 .jewscan-actions {
     display: flex;
-    gap: 1rem;
+    gap: 1px;
+    background: rgba(100, 140, 200, 0.08);
 }
 
-/* Buttons - Premium Style */
+/* Buttons - Clean minimal */
 .jewscan-btn {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 1.125rem 1.75rem;
-    border-radius: 4px;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    gap: 0.625rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.jewscan-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.jewscan-btn:hover::before {
-    opacity: 1;
 }
 
 .jewscan-btn svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    opacity: 0.8;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.7;
 }
 
 .jewscan-btn.secondary {
-    background: rgba(100, 140, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(100, 140, 255, 0.15);
+    background: rgba(100, 140, 200, 0.05);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .jewscan-btn.secondary:hover {
-    background: rgba(100, 140, 255, 0.18);
-    border-color: rgba(100, 140, 255, 0.3);
-    color: rgba(255, 255, 255, 0.95);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(100, 140, 255, 0.15);
+    background: rgba(100, 140, 200, 0.1);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .jewscan-btn.primary {
-    background: linear-gradient(135deg, rgba(80, 120, 220, 0.9) 0%, rgba(60, 100, 200, 0.95) 100%);
-    color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(80, 120, 220, 0.3);
+    background: rgba(80, 120, 180, 0.85);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .jewscan-btn.primary:hover {
-    background: linear-gradient(135deg, rgba(90, 130, 230, 1) 0%, rgba(70, 110, 210, 1) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(80, 120, 220, 0.4);
+    background: rgba(90, 130, 190, 0.95);
 }
 
 .jewscan-btn:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
-    transform: none !important;
 }
 
 /* Results Area */
@@ -378,11 +267,10 @@
 
 .results-image-container {
     position: relative;
-    border-radius: 4px;
+    border-radius: 2px;
     overflow: hidden;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(100, 140, 255, 0.15);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(100, 140, 200, 0.12);
 }
 
 .results-image {
@@ -392,81 +280,72 @@
 }
 
 .results-panel {
-    background: rgba(15, 25, 50, 0.5);
-    border: 1px solid rgba(100, 140, 255, 0.12);
-    border-radius: 4px;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
+    background: rgba(15, 25, 45, 0.4);
+    border: 1px solid rgba(100, 140, 200, 0.1);
+    border-radius: 2px;
+    padding: 1.75rem;
 }
 
 .results-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(100, 140, 255, 0.08);
+    border-bottom: 1px solid rgba(100, 140, 200, 0.08);
 }
 
 .results-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
 
 .results-confidence {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     color: #4ade80;
-    background: rgba(74, 222, 128, 0.1);
-    padding: 0.375rem 0.75rem;
-    border-radius: 4px;
-    font-weight: 600;
+    background: transparent;
+    padding: 0;
+    font-weight: 500;
     font-family: 'SF Mono', Monaco, monospace;
     letter-spacing: 0.05em;
-    border: 1px solid rgba(74, 222, 128, 0.2);
 }
 
 .ethnicity-results {
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 1.5rem;
 }
 
 .primary-result {
     text-align: center;
-    padding: 1.25rem 0 1.75rem;
+    padding: 1rem 0 1.5rem;
 }
 
 .result-badge {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 4px;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 2px;
+    font-size: 0.75rem;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border: 1px solid;
-    animation: badgePulse 2s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(100, 140, 255, 0.3); }
-    50% { box-shadow: 0 0 20px 5px rgba(100, 140, 255, 0.15); }
 }
 
 .ethnicity-breakdown {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .breakdown-title {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin: 0 0 0.5rem;
@@ -475,214 +354,146 @@
 .ethnicity-item {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .ethnicity-label {
-    width: 140px;
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    width: 130px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
     flex-shrink: 0;
     letter-spacing: 0.02em;
 }
 
 .ethnicity-bar-container {
     flex: 1;
-    height: 6px;
-    background: rgba(100, 140, 255, 0.08);
-    border-radius: 3px;
+    height: 3px;
+    background: rgba(100, 140, 200, 0.08);
+    border-radius: 0;
     overflow: hidden;
 }
 
 .ethnicity-bar {
     height: 100%;
-    border-radius: 3px;
-    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ethnicity-bar.jewish {
-    background: linear-gradient(90deg, #5078dc, #3058bc);
-    box-shadow: 0 0 15px rgba(80, 120, 220, 0.4);
+    background: rgba(80, 120, 180, 0.9);
 }
 
 .ethnicity-bar.other {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .ethnicity-percent {
-    width: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.8);
+    width: 45px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
     text-align: right;
     font-family: 'SF Mono', Monaco, monospace;
     letter-spacing: 0.05em;
 }
 
 .results-actions {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 /* Analysis Text */
 .analysis-text {
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(100, 140, 255, 0.08);
+    border-top: 1px solid rgba(100, 140, 200, 0.06);
 }
 
 .analysis-text p {
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.45);
-    line-height: 1.8;
-    margin: 0.875rem 0 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+    margin: 0.75rem 0 0;
     letter-spacing: 0.01em;
 }
 
-/* Loading - Premium Scanning Animation */
+/* Loading */
 .jewscan-loading {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5rem 2rem;
-    position: relative;
 }
 
 .loading-spinner {
-    width: 4rem;
-    height: 4rem;
-    position: relative;
-    margin-bottom: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(100, 140, 200, 0.15);
+    border-top-color: rgba(100, 140, 200, 0.7);
+    border-radius: 0;
+    animation: spin 1s linear infinite;
+    margin-bottom: 2rem;
 }
 
-.loading-spinner::before,
-.loading-spinner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid transparent;
-}
-
-.loading-spinner::before {
-    border-top-color: rgba(100, 140, 255, 0.8);
-    border-right-color: rgba(100, 140, 255, 0.3);
-    animation: spinnerRotate 1s linear infinite;
-}
-
-.loading-spinner::after {
-    inset: 6px;
-    border-bottom-color: rgba(100, 180, 255, 0.6);
-    border-left-color: rgba(100, 180, 255, 0.2);
-    animation: spinnerRotate 1.5s linear infinite reverse;
-}
-
-@keyframes spinnerRotate {
+@keyframes spin {
     to { transform: rotate(360deg); }
 }
 
 .loading-text {
-    font-size: 0.75rem;
-    color: rgba(100, 140, 255, 0.7);
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.35);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
-    animation: textPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes textPulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+    letter-spacing: 0.2em;
 }
 
 /* Scanning icon animation */
 .scanning-icon {
-    animation: spinnerRotate 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
-/* Scan Line Animation - Premium */
+/* Scan Line Animation */
 .scan-line {
     position: absolute;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(100, 140, 255, 0.3), 
-        rgba(100, 180, 255, 0.8), 
-        rgba(100, 140, 255, 0.3), 
-        transparent);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 140, 200, 0.6), transparent);
     opacity: 0;
     top: 0;
-    box-shadow: 
-        0 0 20px rgba(100, 140, 255, 0.5),
-        0 0 60px rgba(100, 140, 255, 0.3);
 }
 
 .scan-line.active {
     opacity: 1;
-    animation: scanLineMove 2s ease-in-out infinite;
+    animation: scanLine 2.5s linear infinite;
 }
 
-@keyframes scanLineMove {
-    0% { 
-        top: 0; 
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    45% { 
-        top: calc(100% - 3px); 
-        opacity: 1;
-    }
-    55% {
-        top: calc(100% - 3px);
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% { 
-        top: 0; 
-        opacity: 0;
-    }
+@keyframes scanLine {
+    0% { top: 0; }
+    50% { top: calc(100% - 1px); }
+    100% { top: 0; }
 }
 
-/* Face Grid - Technical Overlay */
+/* Face Grid */
 .face-grid {
     position: absolute;
     inset: 0;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
 }
 
 .face-grid.active {
     opacity: 1;
 }
 
-/* Corner brackets */
 .face-grid::before {
     content: '';
     position: absolute;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
-    border: 2px solid rgba(100, 140, 255, 0.5);
-    border-radius: 4px;
-    animation: gridPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes gridPulse {
-    0%, 100% { 
-        opacity: 0.5;
-        transform: scale(1);
-    }
-    50% { 
-        opacity: 0.8;
-        transform: scale(1.02);
-    }
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border: 1px solid rgba(100, 140, 200, 0.4);
+    border-radius: 0;
 }
 
 .face-grid::after {
@@ -690,73 +501,28 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     transform: translate(-50%, -50%);
-    border: 2px solid rgba(100, 180, 255, 0.7);
-    border-radius: 50%;
-    animation: centerPulse 1s ease-in-out infinite;
-}
-
-@keyframes centerPulse {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
-    }
-    50% { 
-        transform: translate(-50%, -50%) scale(1.3);
-        opacity: 0.3;
-    }
-}
-
-/* Additional scan effects */
-.preview-image-container.scanning::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-        linear-gradient(transparent 50%, rgba(100, 140, 255, 0.02) 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    animation: scanlines 0.1s steps(60) infinite;
-}
-
-@keyframes scanlines {
-    to { background-position: 0 -4px; }
-}
-
-/* Data points animation during scan */
-.preview-image-container.scanning .data-point {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: rgba(100, 180, 255, 0.8);
-    border-radius: 50%;
-    animation: dataPointBlink 0.8s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(100, 180, 255, 0.5);
-}
-
-@keyframes dataPointBlink {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(0.5); }
+    border: 1px solid rgba(100, 140, 200, 0.5);
 }
 
 /* Face Marker */
 .face-marker {
     position: absolute;
-    top: 15%;
-    left: 15%;
-    right: 15%;
-    bottom: 15%;
-    border: 2px solid rgba(100, 140, 255, 0.6);
-    border-radius: 4px;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border: 1px solid rgba(100, 140, 200, 0.5);
+    border-radius: 0;
 }
 
 .face-marker::before,
 .face-marker::after {
     content: '';
     position: absolute;
-    background: rgba(100, 180, 255, 0.8);
+    background: rgba(100, 140, 200, 0.6);
 }
 
 .face-marker::before {
@@ -777,14 +543,14 @@
 
 /* Disclaimer */
 .jewscan-disclaimer {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    font-size: 0.6875rem;
-    color: rgba(255, 255, 255, 0.25);
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.2);
     text-align: left;
-    line-height: 1.9;
+    line-height: 1.8;
     letter-spacing: 0.02em;
-    border-top: 1px solid rgba(100, 140, 255, 0.08);
+    border-top: 1px solid rgba(100, 140, 200, 0.06);
 }
 
 /* Footer */
@@ -798,13 +564,13 @@
 }
 
 .jewscan-footer a {
-    color: rgba(100, 140, 255, 0.4);
+    color: rgba(255, 255, 255, 0.3);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .jewscan-footer a:hover {
-    color: rgba(100, 140, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* Active nav link */
@@ -816,31 +582,27 @@
 @media (max-width: 900px) {
     .jewscan-layout {
         flex-direction: column;
-        gap: 3.5rem;
+        gap: 3rem;
         align-items: center;
     }
     
     .jewscan-info {
-        max-width: 560px;
+        max-width: 520px;
     }
     
     .jewscan-logo-large {
-        margin: 0 auto 2.5rem;
+        margin: 0 auto 2rem;
         display: block;
     }
     
     .jewscan-container {
-        max-width: 560px;
+        max-width: 520px;
     }
 }
 
 @media (max-width: 640px) {
     .jewscan-main {
-        padding: 2rem 1rem 5rem;
-    }
-    
-    .jewscan-card {
-        padding: 1.5rem;
+        padding: 2rem 1rem 4rem;
     }
     
     .upload-zone {
@@ -852,10 +614,6 @@
     }
     
     .jewscan-logo-large {
-        width: 140px;
-    }
-    
-    .ai-feature {
-        gap: 1rem;
+        width: 120px;
     }
 }

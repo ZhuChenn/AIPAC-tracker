@@ -139,26 +139,26 @@ function drawLandmarks(canvas, detections, progress = 1) {
     // Draw landmark points
     const pointsToDraw = Math.floor(positions.length * progress);
     
-    // Clean blue colors - no glow
-    ctx.fillStyle = 'rgba(100, 140, 200, 0.8)';
-    ctx.strokeStyle = 'rgba(100, 140, 200, 0.5)';
+    // Premium white/cyan colors
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
     ctx.lineWidth = 1;
     
-    // Draw points
+    // Draw small precise points
     for (let i = 0; i < pointsToDraw; i++) {
         const point = positions[i];
         const x = point.x * scaleX;
         const y = point.y * scaleY;
         
         ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
         ctx.fill();
     }
     
     // Draw connecting lines for face outline
     if (progress > 0.3) {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(100, 140, 200, 0.4)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
         
         // Jaw line (0-16)
         for (let i = 0; i < Math.min(17, pointsToDraw); i++) {
@@ -431,9 +431,9 @@ function showResults(data, detections) {
             const scaleX = resultsCanvas.width / resultsImage.naturalWidth;
             const scaleY = resultsCanvas.height / resultsImage.naturalHeight;
             
-            // Draw all points and lines - Clean blue, no glow
-            ctx.fillStyle = 'rgba(100, 140, 200, 0.7)';
-            ctx.strokeStyle = 'rgba(100, 140, 200, 0.4)';
+            // Draw all points and lines - Clean white
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
             ctx.lineWidth = 1;
             
             // Draw points

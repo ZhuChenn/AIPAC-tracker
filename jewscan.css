@@ -1,9 +1,47 @@
-/* JewScan Page Styles - Clean Minimal Edition */
+/* JewScan Page Styles - Premium Edition */
 
 .jewscan-page {
     min-height: 100vh;
     background: #030508;
     background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle star background */
+.jewscan-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 200px 50px, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 220px 150px, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 280px 90px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 320px 180px, rgba(255,255,255,0.07), transparent),
+        radial-gradient(1px 1px at 380px 30px, rgba(255,255,255,0.11), transparent),
+        radial-gradient(1px 1px at 420px 120px, rgba(255,255,255,0.09), transparent),
+        radial-gradient(1px 1px at 480px 70px, rgba(255,255,255,0.08), transparent),
+        radial-gradient(1px 1px at 520px 160px, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 580px 40px, rgba(255,255,255,0.06), transparent),
+        radial-gradient(1px 1px at 640px 130px, rgba(255,255,255,0.1), transparent);
+    background-size: 700px 200px;
+    animation: starFloat 60s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes starFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
 }
 
 .jewscan-main {
@@ -181,11 +219,12 @@
 
 .preview-image-container {
     position: relative;
-    border-radius: 2px;
+    border-radius: 12px;
     overflow: hidden;
     background: #000;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(100, 140, 200, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .preview-image {
@@ -261,10 +300,11 @@
 
 .results-image-container {
     position: relative;
-    border-radius: 2px;
+    border-radius: 12px;
     overflow: hidden;
     aspect-ratio: 4/3;
-    border: 1px solid rgba(100, 140, 200, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .results-image {
@@ -274,10 +314,12 @@
 }
 
 .results-panel {
-    background: rgba(15, 25, 45, 0.4);
-    border: 1px solid rgba(100, 140, 200, 0.1);
-    border-radius: 2px;
-    padding: 1.75rem;
+    background: rgba(10, 15, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .results-header {
@@ -322,40 +364,41 @@
 /* Big percentage display */
 .result-percentage {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 5rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.95);
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.98);
     line-height: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     opacity: 0;
-    transform: translateY(-30px);
-    animation: percentageDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: translateY(-20px) scale(0.95);
+    animation: percentageDrop 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    letter-spacing: -0.02em;
 }
 
 @keyframes percentageDrop {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 .result-percentage .percent-symbol {
     font-size: 2.5rem;
-    font-weight: 500;
-    opacity: 0.6;
-    margin-left: 0.25rem;
+    font-weight: 600;
+    opacity: 0.5;
+    margin-left: 0.125rem;
 }
 
 .result-label {
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.35);
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 2rem;
     opacity: 0;
-    animation: fadeIn 0.5s ease 0.3s forwards;
+    animation: fadeIn 0.4s ease 0.25s forwards;
 }
 
 @keyframes fadeIn {
@@ -364,17 +407,17 @@
 
 .result-badge {
     display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 8px;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
     font-family: 'Manrope', -apple-system, sans-serif;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border: 1px solid;
     opacity: 0;
-    transform: translateY(10px);
-    animation: badgeFadeIn 0.5s ease 0.5s forwards;
+    transform: translateY(8px);
+    animation: badgeFadeIn 0.4s ease 0.4s forwards;
 }
 
 @keyframes badgeFadeIn {

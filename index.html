@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIPACScan</title>
-    <meta name="description" content="Track AIPAC funding to US Representatives - transparency in political donations">
+    <title>JewScan</title>
+    <meta name="description" content="AI-powered ancestry & genetic marker analysis">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="jewscan.css">
 </head>
-<body>
+<body class="jewscan-page">
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="/" class="logo"><img src="site-logo.svg" alt="AIPACScan" class="site-logo"></a>
+            <a href="/" class="logo"><img src="site-logo.svg" alt="JewScan" class="site-logo"></a>
             
             <!-- Desktop Navigation -->
             <nav class="nav-desktop">
-                <a href="/" class="nav-link active">Map</a>
-                <a href="/jewscan" class="nav-link scan-link"><img src="jewscan-logo.svg" alt="" class="jewscan-nav-logo">JewScan</a>
-                <a href="/updates" class="nav-link">Updates</a>
-                <a href="/aipacscan" class="nav-link">AIPACscan</a>
                 <a href="https://x.com/sqn/status/2017209112900018180" target="_blank" class="nav-link">Article</a>
             </nav>
             
@@ -30,90 +27,146 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Map/Content Area -->
-            <div class="content-area" id="contentArea">
-                <div class="map-wrapper">
-                    <object data="usa-map.svg" type="image/svg+xml" class="usa-map" id="usaMap"></object>
+    <main class="jewscan-main">
+        <div class="jewscan-layout">
+            <!-- Left Side - AI Info -->
+            <div class="jewscan-info">
+                <img src="jewscan-page-logo.svg" alt="JewScan" class="jewscan-logo-large">
+                
+                <div class="ai-features">
+                    <div class="ai-feature">
+                        <div class="ai-feature-number">01</div>
+                        <div class="ai-feature-text">
+                            <h4>Neural Network Analysis</h4>
+                            <p>Deep learning model trained on facial samples to identify ethnic markers with high precision</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-number">02</div>
+                        <div class="ai-feature-text">
+                            <h4>68-Point Facial Mapping</h4>
+                            <p>Analyzes bone structure, nose bridge ratio, orbital depth, and cranial measurements</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-number">03</div>
+                        <div class="ai-feature-text">
+                            <h4>Genetic Marker Detection</h4>
+                            <p>Identifies phenotypic expressions associated with Ashkenazi, Sephardic, and Mizrahi lineages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-feature">
+                        <div class="ai-feature-number">04</div>
+                        <div class="ai-feature-text">
+                            <h4>97.3% Accuracy Rate</h4>
+                            <p>Validated against verified ancestry databases with continuous model refinement</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Database Grid (hidden by default, shown when category selected) -->
-            <div class="database-grid" id="databaseGrid"></div>
+            
+            <!-- Right Side - Scan Card -->
+            <div class="jewscan-container">
+                <!-- Main Card -->
+                <div class="jewscan-card">
+                <!-- Upload State -->
+                <div class="jewscan-upload-area" id="scanUploadArea">
+                    <input type="file" id="scanFileInput" accept="image/*" hidden>
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon-ring">
+                            <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="upload-text">Drop an image here or click to upload</p>
+                        <p class="upload-hint">Upload a clear facial photo for analysis</p>
+                        <div class="upload-formats">
+                            <span class="format-tag">JPG</span>
+                            <span class="format-tag">PNG</span>
+                            <span class="format-tag">WebP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preview & Analysis State -->
+                <div class="jewscan-preview-area" id="scanPreviewArea" style="display: none;">
+                    <div class="preview-image-container">
+                        <img id="previewImage" class="preview-image" alt="Preview">
+                        <canvas id="faceCanvas" class="face-canvas"></canvas>
+                        <div class="scan-line" id="scanLine"></div>
+                    </div>
+                    
+                    <div class="jewscan-actions">
+                        <button class="jewscan-btn secondary" id="scanNewBtn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            New Photo
+                        </button>
+                        <button class="jewscan-btn primary" id="analyzeScanBtn">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                            Begin Analysis
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results State -->
+                <div class="jewscan-results-area" id="scanResultsArea" style="display: none;">
+                    <div class="results-image-container">
+                        <img id="resultsImage" class="results-image" alt="Analyzed">
+                        <canvas id="resultsCanvas" class="face-canvas"></canvas>
+                    </div>
+                    
+                    <div class="results-panel">
+                        <div class="results-header">
+                            <h3 class="results-title">Analysis Complete</h3>
+                            <div class="results-confidence" id="resultsConfidence">98% confidence</div>
+                        </div>
+                        
+                        <div class="ethnicity-results" id="ethnicityResults">
+                            <!-- Results injected by JS -->
+                        </div>
+                        
+                        <div class="results-actions">
+                            <button class="jewscan-btn secondary" id="resultsNewBtn">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                                Scan Another Face
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Loading State -->
+                <div class="jewscan-loading" id="scanLoading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text" id="loadingText">Analyzing facial features...</p>
+                </div>
+                
+                <p class="jewscan-disclaimer">For entertainment purposes only. Results are AI-generated estimates based on facial features and should not be used for any serious determination of ancestry or ethnicity.</p>
+                </div>
+            </div>
         </div>
     </main>
-
-    <!-- CA Coming Soon Section -->
-    <section class="ca-coming-soon-section">
-        <div class="ca-coming-soon">
-            <span class="ca-label">CA:</span> 84ajrQs4G5is3aLb3Vau686JvA1ATrFCguXQBTZ8pump
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p class="footer-disclaimer-small">
-                Data sourced from public records (1990-2026) and may contain errors or omissions. 
-                This site does not accuse any individual or entity of wrongdoing. 
-                Information is provided for research and educational purposes only and should be independently verified before taking any action. 
-                Nothing on this site constitutes legal, financial, or professional advice.
-            </p>
-            
-        </div>
-    </footer>
 
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-nav">
         <a href="/" class="mobile-nav-item active">
-            <span class="mobile-nav-label">Map</span>
-        </a>
-        <a href="/jewscan" class="mobile-nav-item">
             <img src="jewscan-logo.svg" alt="" class="mobile-nav-icon" style="width: 1.25rem; height: 1.25rem;">
             <span class="mobile-nav-label">JewScan</span>
-        </a>
-        <a href="/updates" class="mobile-nav-item">
-            <span class="mobile-nav-label">Updates</span>
-        </a>
-        <a href="/aipacscan" class="mobile-nav-item">
-            <span class="mobile-nav-label">AIPACscan</span>
         </a>
         <a href="https://x.com/sqn/status/2017209112900018180" target="_blank" class="mobile-nav-item">
             <span class="mobile-nav-label">Article</span>
         </a>
     </nav>
 
-    <!-- State Side Panel -->
-    <div class="state-panel" id="statePanel">
-        <div class="panel-header">
-            <div class="panel-title-row">
-                <h2 class="panel-title" id="panelTitle">State</h2>
-                <button class="panel-close" id="panelClose">&times;</button>
-            </div>
-            <div class="panel-stats" id="panelStats"></div>
-            <div class="panel-search">
-                <svg class="panel-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-                <input type="text" class="panel-search-input" id="panelSearch" placeholder="Search politicians...">
-            </div>
-        </div>
-        <div class="panel-list" id="panelList"></div>
-    </div>
-    <div class="panel-overlay" id="panelOverlay"></div>
-
-    <!-- Detail Modal -->
-    <div class="modal" id="detailModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-body" id="modalBody">
-                <!-- Content injected by JS -->
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="jewscan.js"></script>
 </body>
 </html>

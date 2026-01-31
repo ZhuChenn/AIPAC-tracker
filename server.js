@@ -300,9 +300,18 @@ const server = http.createServer((req, res) => {
         return handleGeminiEditRequest(req, res);
     }
 
-    // Serve static files
-    let filePath = req.url === '/' ? '/index.html' : req.url.split('?')[0];
-    filePath = path.join(__dirname, filePath);
+    // Serve static files with clean URL support
+    let urlPath = req.url.split('?')[0];
+    
+    // Clean URL mapping
+    if (urlPath === '/') {
+        urlPath = '/index.html';
+    } else if (!path.extname(urlPath)) {
+        // No extension - try adding .html
+        urlPath = urlPath + '.html';
+    }
+    
+    let filePath = path.join(__dirname, urlPath);
 
     const ext = path.extname(filePath);
     const contentType = mimeTypes[ext] || 'application/octet-stream';
@@ -311,7 +320,7 @@ const server = http.createServer((req, res) => {
         if (err) {
             if (err.code === 'ENOENT') {
                 res.writeHead(404);
-                res.end('File not found');
+                res.end('File not found: ' + urlPath);
             } else {
                 res.writeHead(500);
                 res.end('Server error');

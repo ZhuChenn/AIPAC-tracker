@@ -330,10 +330,13 @@ function showError(message) {
     analyzeBtn.disabled = false;
     analyzeBtn.style.opacity = '1';
     
+    // Log error to console for debugging
+    console.error('JewScan Error:', message);
+    
     setTimeout(() => {
         uploadZone.innerHTML = originalContent;
         resetScanStates();
-    }, 3000);
+    }, 8000);
 }
 
 // Analyze button

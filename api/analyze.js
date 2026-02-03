@@ -26,7 +26,8 @@ export default async function handler(req, res) {
     if (!apiKey) {
         return res.status(500).json({ 
             error: 'API key not configured',
-            hint: 'Make sure XAI_API_KEY is set in Vercel Environment Variables and you redeployed after adding it'
+            hint: 'Make sure XAI_API_KEY is set in Vercel Environment Variables and you redeployed after adding it',
+            envKeys: Object.keys(process.env).filter(k => k.toLowerCase().includes('xai') || k.toLowerCase().includes('api'))
         });
     }
 
@@ -86,10 +87,13 @@ Respond with this JSON format:
         });
 
         if (!response.ok) {
-            const error = await response.json().catch(() => ({}));
-            console.error('Grok API error:', error);
+            const errorText = await response.text();
+            console.error('Grok API error:', response.status, errorText);
+            let errorData = {};
+            try { errorData = JSON.parse(errorText); } catch(e) {}
             return res.status(response.status).json({ 
-                error: error.error?.message || 'API request failed' 
+                error: errorData.error?.message || errorData.error || errorData.message || `API error ${response.status}`,
+                debug: { status: response.status, body: errorText.substring(0, 200) }
             });
         }
 

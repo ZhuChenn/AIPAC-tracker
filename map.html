@@ -99,6 +99,27 @@
                 padding-bottom: 5rem;
             }
         }
+        
+        /* Force hide state panel when not active */
+        .state-panel {
+            visibility: hidden;
+            opacity: 0;
+            right: -500px !important;
+        }
+        
+        .state-panel.active {
+            visibility: visible;
+            opacity: 1;
+            right: 0 !important;
+        }
+        
+        .panel-overlay {
+            display: none;
+        }
+        
+        .panel-overlay.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +154,37 @@
             </div>
         </div>
     </main>
+
+    <!-- State Panel (Side Panel) - Hidden until state is clicked -->
+    <div id="panelOverlay" class="panel-overlay"></div>
+    <aside id="statePanel" class="state-panel">
+        <div class="panel-header">
+            <h2 id="panelTitle" class="panel-title">State Name</h2>
+            <button id="panelClose" class="panel-close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="panelStats" class="panel-stats"></div>
+        <div class="panel-search-wrapper">
+            <input type="text" id="panelSearch" class="panel-search" placeholder="Search politicians...">
+        </div>
+        <div id="panelList" class="panel-list"></div>
+    </aside>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="detail-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="modalClose" class="modal-close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
 
     <!-- Mobile Navigation -->
     <nav class="mobile-nav">

@@ -102,9 +102,20 @@ function convertToJpeg(imageDataUrl) {
     });
 }
 
+// Check if file is a valid image type
+function isValidImageFile(file) {
+    if (!file) return false;
+    // Check MIME type
+    if (file.type.startsWith('image/')) return true;
+    // Also check file extension for formats that may not have proper MIME type
+    const ext = file.name.toLowerCase().split('.').pop();
+    const validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif', 'heic', 'heif', 'bmp', 'svg'];
+    return validExtensions.includes(ext);
+}
+
 // Handle file selection
 function handleFileSelect(file) {
-    if (!file || !file.type.startsWith('image/')) return;
+    if (!isValidImageFile(file)) return;
     
     const reader = new FileReader();
     reader.onload = async (e) => {

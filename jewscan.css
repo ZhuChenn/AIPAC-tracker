@@ -1,11 +1,17 @@
 /* JewScan Page Styles - Premium Edition */
 
-html:has(.jewscan-page),
+/* Force scrolling to work */
+html {
+    overflow: auto !important;
+    height: auto !important;
+}
+
 body.jewscan-page {
+    display: block !important;
     height: auto !important;
     min-height: 100vh;
-    overflow-y: auto !important;
-    overflow-x: hidden;
+    overflow: visible !important;
+    position: relative;
 }
 
 .jewscan-page {
@@ -13,8 +19,6 @@ body.jewscan-page {
     background: #030508;
     background-attachment: fixed;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 /* Subtle star background */
@@ -57,7 +61,7 @@ body.jewscan-page {
     position: relative;
     z-index: 1;
     display: block;
-    padding: 4rem 2rem 8rem;
+    padding: 4rem 2rem 12rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;

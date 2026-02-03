@@ -1,4 +1,4 @@
-// Vercel Serverless Function - Grok API Proxy
+// Vercel Serverless Function - Grok API Proxy v3
 
 export default async function handler(req, res) {
     // CORS headers
@@ -71,8 +71,7 @@ Respond with this JSON format:
                             {
                                 type: 'image_url',
                                 image_url: {
-                                    url: image,
-                                    detail: 'high'
+                                    url: image
                                 }
                             },
                             {

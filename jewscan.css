@@ -5,7 +5,7 @@
     background: #030508;
     background-attachment: fixed;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Subtle star background */

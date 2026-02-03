@@ -1,21 +1,29 @@
 /* JewScan Page Styles - Premium Edition */
 
-/* Force scrolling to work */
-html {
-    overflow: auto !important;
+/* CRITICAL: Force scrolling to work on all devices */
+html, body {
     height: auto !important;
+    max-height: none !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
 }
 
 body.jewscan-page {
     display: block !important;
+    flex-direction: unset !important;
     height: auto !important;
+    max-height: none !important;
     min-height: 100vh;
-    overflow: visible !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
     position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 .jewscan-page {
     min-height: 100vh;
+    height: auto;
     background: #030508;
     background-attachment: fixed;
     position: relative;
@@ -759,7 +767,7 @@ body.jewscan-page {
 
 @media (max-width: 640px) {
     .jewscan-main {
-        padding: 2rem 1rem 4rem;
+        padding: 2rem 1rem 10rem !important;
     }
     
     .upload-zone {

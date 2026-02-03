@@ -14,6 +14,13 @@
             padding-top: 5rem;
         }
         
+        /* Override header blur on map page to prevent map blurring */
+        .header {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(8, 12, 24, 0.98) !important;
+        }
+        
         .map-page-header {
             text-align: center;
             padding: 2rem 1.5rem 1rem;
@@ -70,11 +77,19 @@
             padding: 0.5rem 1.5rem 1rem;
         }
         
-        /* Ensure map renders crisp */
+        /* Ensure map renders crisp - isolate from blur effects */
+        .main-content {
+            isolation: isolate;
+            position: relative;
+            z-index: 1;
+        }
+        
         .map-wrapper {
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
-            will-change: auto;
+            isolation: isolate;
+            filter: none !important;
+            -webkit-filter: none !important;
         }
         
         .usa-map {
@@ -82,6 +97,8 @@
             image-rendering: crisp-edges;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            filter: none !important;
+            -webkit-filter: none !important;
         }
         
         /* Mobile nav adjustments */

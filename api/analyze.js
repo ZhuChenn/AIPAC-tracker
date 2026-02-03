@@ -62,7 +62,7 @@ Respond with this JSON format:
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'grok-2-vision-1212',
+                model: 'grok-2-vision-latest',
                 messages: [
                     {
                         role: 'user',

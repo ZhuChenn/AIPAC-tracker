@@ -120,9 +120,30 @@
         .panel-overlay.active {
             display: block;
         }
+        
+        /* Cover for bottom left corner */
+        .bottom-left-cover {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 120px;
+            background: #030508;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .bottom-left-cover {
+                bottom: 70px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Cover for bottom left corner search bar bug -->
+    <div class="bottom-left-cover"></div>
+    
     <!-- Header -->
     <header class="header">
         <div class="header-content">

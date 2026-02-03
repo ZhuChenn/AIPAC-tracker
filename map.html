@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIPAC Map - Political Contributions by State</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding-top: 5rem;
+        }
+        
+        .map-page-header {
+            text-align: center;
+            padding: 2rem 1.5rem 1rem;
+        }
+        
+        .map-page-title {
+            font-family: 'Manrope', -apple-system, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .map-page-subtitle {
+            font-family: 'Manrope', -apple-system, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .map-stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 1.5rem;
+            margin: 1rem auto 0;
+            max-width: 600px;
+        }
+        
+        .map-stat {
+            text-align: center;
+        }
+        
+        .map-stat-value {
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        
+        .map-stat-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+        
+        .content-area {
+            padding: 0.5rem 1.5rem 1rem;
+        }
+        
+        /* Mobile nav adjustments */
+        .mobile-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(8, 12, 24, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(100, 140, 255, 0.1);
+            padding: 0.75rem 1rem;
+            z-index: 100;
+            justify-content: space-around;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.625rem;
+            font-family: 'Manrope', sans-serif;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        
+        .mobile-nav-link.active {
+            color: rgba(100, 180, 255, 0.9);
+        }
+        
+        .mobile-nav-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        @media (max-width: 768px) {
+            .map-page-title {
+                font-size: 1.75rem;
+            }
+            
+            .map-stats-bar {
+                gap: 2rem;
+            }
+            
+            .map-stat-value {
+                font-size: 1.25rem;
+            }
+            
+            body {
+                padding-bottom: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="site-logo.svg" alt="Site Logo" class="site-logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="/" class="nav-link">JewScan</a>
+                <a href="/map" class="nav-link active">AIPAC Map</a>
+                <a href="/hall" class="nav-link">Hall of Jews</a>
+                <span class="nav-badge">CA: Coming Soon</span>
+                <a href="https://x.com/sqn/status/2017652879310438779" target="_blank" class="nav-link">Article</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="map-page-header">
+        <h1 class="map-page-title">AIPAC Map</h1>
+        <p class="map-page-subtitle">Explore pro-Israel and AIPAC-aligned political contributions by state (1990-2026)</p>
+        
+        <div class="map-stats-bar">
+            <div class="map-stat">
+                <div class="map-stat-value" id="entityCount">0</div>
+                <div class="map-stat-label">Politicians</div>
+            </div>
+            <div class="map-stat">
+                <div class="map-stat-value" id="fundingTotal">$0</div>
+                <div class="map-stat-label">Total Funding</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Map -->
+            <div class="content-area">
+                <div class="map-wrapper">
+                    <object id="usaMap" class="usa-map" data="usa-map.svg" type="image/svg+xml">
+                        Your browser does not support SVG
+                    </object>
+                </div>
+            </div>
+
+            <!-- CA Coming Soon -->
+            <div class="ca-coming-soon-section">
+                <p class="ca-coming-soon"><span class="ca-label">CA:</span> 84ajrQs4G5is3aLb3Vau686JvA1ATrFCguXQBTZ8pump</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- State Panel (Side Panel) -->
+    <div id="panelOverlay" class="panel-overlay"></div>
+    <aside id="statePanel" class="state-panel">
+        <div class="panel-header">
+            <h2 id="panelTitle" class="panel-title">State Name</h2>
+            <button id="panelClose" class="panel-close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="panelStats" class="panel-stats"></div>
+        <div class="panel-search-wrapper">
+            <input type="text" id="panelSearch" class="panel-search" placeholder="Search politicians...">
+        </div>
+        <div id="panelList" class="panel-list"></div>
+    </aside>
+
+    <!-- Detail Modal -->
+    <div id="detailModal" class="detail-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="modalClose" class="modal-close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+            JewScan
+        </a>
+        <a href="/map" class="mobile-nav-link active">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+            Map
+        </a>
+        <a href="/hall" class="mobile-nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+            Hall
+        </a>
+        <a href="https://x.com/sqn/status/2017652879310438779" target="_blank" class="mobile-nav-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"></path>
+            </svg>
+            Article
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-disclaimer-small">Data sourced from public records (1990-2026) and may contain errors or omissions. This site does not accuse any individual or entity of wrongdoing. Information is provided for research and educational purposes only and should be independently verified before taking any action. Nothing on this site constitutes legal, financial, or professional advice.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

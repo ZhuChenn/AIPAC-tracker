@@ -70,6 +70,20 @@
             padding: 0.5rem 1.5rem 1rem;
         }
         
+        /* Ensure map renders crisp */
+        .map-wrapper {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: auto;
+        }
+        
+        .usa-map {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
         /* Mobile nav adjustments */
         .mobile-nav {
             display: flex;
@@ -180,11 +194,6 @@
                         Your browser does not support SVG
                     </object>
                 </div>
-            </div>
-
-            <!-- CA Coming Soon -->
-            <div class="ca-coming-soon-section">
-                <p class="ca-coming-soon"><span class="ca-label">CA:</span> 84ajrQs4G5is3aLb3Vau686JvA1ATrFCguXQBTZ8pump</p>
             </div>
         </div>
     </main>

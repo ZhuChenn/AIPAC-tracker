@@ -244,6 +244,8 @@ function openStatePanel(stateName) {
     renderPanelList(politicians);
     
     // Show panel
+    panel.style.display = 'flex';
+    overlay.style.display = 'block';
     panel.classList.add('active');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -255,8 +257,12 @@ function openStatePanel(stateName) {
 }
 
 function closeStatePanel() {
-    document.getElementById('statePanel').classList.remove('active');
-    document.getElementById('panelOverlay').classList.remove('active');
+    const panel = document.getElementById('statePanel');
+    const overlay = document.getElementById('panelOverlay');
+    panel.classList.remove('active');
+    overlay.classList.remove('active');
+    panel.style.display = 'none';
+    overlay.style.display = 'none';
     document.body.style.overflow = '';
 }
 

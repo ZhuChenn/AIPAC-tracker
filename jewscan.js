@@ -80,13 +80,37 @@ function showPreview(imageUrl) {
     };
 }
 
+// Convert image to JPEG for API compatibility
+function convertToJpeg(imageDataUrl) {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            // Convert to JPEG with 90% quality
+            const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+            resolve(jpegDataUrl);
+        };
+        img.onerror = () => {
+            // If conversion fails, return original
+            resolve(imageDataUrl);
+        };
+        img.src = imageDataUrl;
+    });
+}
+
 // Handle file selection
 function handleFileSelect(file) {
     if (!file || !file.type.startsWith('image/')) return;
     
     const reader = new FileReader();
-    reader.onload = (e) => {
-        showPreview(e.target.result);
+    reader.onload = async (e) => {
+        // Convert to JPEG for better API compatibility (handles WebP, PNG, HEIC, etc.)
+        const jpegImage = await convertToJpeg(e.target.result);
+        showPreview(jpegImage);
     };
     reader.readAsDataURL(file);
 }

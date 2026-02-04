@@ -122,6 +122,14 @@ body {
     border-radius: 3px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.nav-badge:hover {
+    background: rgba(180, 160, 120, 0.15);
+    color: rgba(180, 160, 120, 1);
 }
 
 .nav-dropdown {
